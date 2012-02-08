@@ -1,1 +1,11 @@
 Vorlesungsmaterial für den Infovorkurs der Fachschaft Informatik der HS Karlsruhe
+
+Tag 1: 
+    Variablen, Datentypen, Konvertierungen, Arithmetik, Netbeans, Einführung Debugging 
+Tag 2: 
+    Kommentare, Boolesche Ausdrücke, If-Abfragen, Switch-Case, Weiterführung Debugging 
+Tag 3: 
+    Arrays, (Do-)While-Schleife, For-Schleifen, Weiterführung Debugging 
+Tag 4: 
+    (statische) Methoden, Attribute, Ausführung Debugging 
+    BahnticketAutomat Aufgabe auf github: https://github.com/fsi-hska/fsiBahnticketAutomat

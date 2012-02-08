@@ -1,0 +1,63 @@
+
+\documentclass[final,a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+
+\begin{document}
+\lstset{tabsize=4}
+\lstset{basicstyle=\small}
+\lstset{language=java}
+
+{\huge Programmiervorkurs Tag 3 - Aufgaben}
+
+\bigskip
+
+\begin{enumerate}
+  \item{
+	Schreibe ein Programm, das 23 mal "`Hello World!"' ausgibt. Verwende dazu eine Schleife.
+	}
+  \item{
+	Schreibe ein Programm, das "`10 9 8 7 6 5 4 3 2 1 0 Bumm 0 1 2 3 4 5 6 7 8 9 10"' ausgibt.
+	Verwende dazu 2 Schleifen.
+	}
+  \item{
+	Im Array $notenspiegel$ sind die Noten einer Klausur gespeichert. Das erste Feld (Index $0$)
+	enthält die Anzahl der Studenten, die eine 1 geschrieben haben, das zweite Feld enthält
+	die Anzahl der Studenten, die eine 2 geschrieben haben usw.
+	\begin{lstlisting}
+	int[] notenspiegel = new int[] { 2, 5, 12, 8, 5 };
+	\end{lstlisting}
+	Hier haben also 2 Studenten eine 1, 5 Studenten haben eine 2 und 5 Studenten haben nicht bestanden (eine 5).
+	Berechne den Notendurchschnitt. Verwende dazu eine Schleife, in der du auf die Arrayfelder zugreifst.
+	}
+  \item{
+	Schreibe ein Programm, das ausgibt, wie viele Tage ein Monat hat. Erstelle dazu ein Array,
+	das die Monatsnamen enthält, sowie ein weiteres Array, das in der selben Reihenfolge die Anzahl
+	der Tage in den jeweiligen Monaten enthält. Schaltjahre sollen hier außer Acht gelassen werden.
+	\begin{lstlisting}
+	String[] namen = new String[] { "Januar", "Februar", ... }
+	int[] tage = new int[] { 31, 28, ... }
+	\end{lstlisting}
+	Mit Hilfe einer Schleife soll jetzt für jeden Monat ausgegeben werden, wieviele Tage dieser hat.
+	Für den Monat Februar soll also z.B. "`Der Monat Februar hat 28 Tage."' ausgegeben werden.
+	}
+  \item{
+	Das Array $zahlenfolge$ soll um die Zahlen $108$, $540$ und $7200$ erweitert werden.
+	\begin{lstlisting}
+	int[] zahlenfolge = new int[] { 4, 8, 15, 16, 23, 42 };
+	\end{lstlisting}
+	(Hinweis: Dazu muss ein neues Array angelegt werden und die Zahlen in dieses übertragen werden.)
+	}
+  \item{
+	Die Zahlenfolge $1, 1, 2, 3, 5, 8, 13, \ldots$ nennt man Fibonacci-Zahlen. Dabei entspricht jede Zahl
+	in der Folge gerade der Summe ihrer beiden Vorgänger: $1+1=2, 1+2=3, 2+3=5, 3+5=8, \ldots$
+
+	Schreibe eine Schleife, die alle Fibonacci-Zahlen ausgibt, die kleiner als $1000$ sind.
+	}
+\end{enumerate}
+
+\end{document}
+

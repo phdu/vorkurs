@@ -1,0 +1,149 @@
+
+\documentclass[final,a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+
+\begin{document}
+\lstset{tabsize=4}
+\lstset{basicstyle=\small}
+\lstset{language=java}
+\lstset{literate=%
+{ä}{{\"a}}1
+}
+
+{\huge Programmiervorkurs Tag 3 - Aufgaben}
+
+\bigskip
+
+\begin{enumerate}
+  \item{
+	Schreibe ein Programm, das 23 mal "`Hello World!"' ausgibt. Verwende dazu eine Schleife.
+
+	\begin{lstlisting}
+  for (int i = 0; i < 23; i++) {
+	System.out.println("Hello World!");
+  }
+	\end{lstlisting}
+	}
+  \item{
+	Schreibe ein Programm, das "`10 9 8 7 6 5 4 3 2 1 0 Bumm 0 1 2 3 4 5 6 7 8 9 10"' ausgibt.
+	Verwende dazu 2 Schleifen.
+
+	\begin{lstlisting}
+  for (int i = 10; i >= 0; i--) {
+	System.out.print(i + " ");
+  }
+
+  System.out.print("Bumm");
+
+  for (int i = 0; i <= 10; i++) {
+	System.out.print(" " + i);
+  }
+	\end{lstlisting}
+	}
+  \item{
+	Im Array $notenspiegel$ sind die Noten einer Klausur gespeichert. Das erste Feld (Index $0$)
+	enthält die Anzahl der Studenten, die eine 1 geschrieben haben, das zweite Feld enthält
+	die Anzahl der Studenten, die eine 2 geschrieben haben usw.
+	\begin{lstlisting}
+	int[] notenspiegel = new int[] { 2, 5, 12, 8, 5 };
+	\end{lstlisting}
+	Hier haben also 2 Studenten eine 1, 5 Studenten haben eine 2 und 5 Studenten haben nicht bestanden (eine 5).
+	Berechne den Notendurchschnitt. Verwende dazu eine Schleife, in der du auf die
+	Arrayfelder zugreifst.
+
+	\begin{lstlisting}
+  int[] notenspiegel = new int[] { 2, 5, 12, 8, 5 };
+  int summe = 0;
+  int anzahl = 0;
+  double schnitt;
+
+  for (int i = 0; i < notenspiegel.length; i++) {
+	summe += notenspiegel[i] * (i+1);
+	anzahl += notenspiegel[i];
+  }
+
+  schnitt = (double)summe / anzahl;
+
+  System.out.println("Notenschnitt: " + schnitt);
+	\end{lstlisting}
+	}
+  \item{
+	Schreibe ein Programm, das ausgibt, wie viele Tage ein Monat hat. Erstelle dazu ein Array,
+	das die Monatsnamen enthält, sowie ein weiteres Array, das in der selben Reihenfolge die Anzahl
+	der Tage in den jeweiligen Monaten enthält (Schaltjahre sollen hier außer Acht gelassen werden).
+	\begin{lstlisting}
+	String[] namen = new String[] { "Januar", "Februar", ... }
+	int[] tage = new int[] { 31, 28, ... }
+	\end{lstlisting}
+	Mit Hilfe einer Schleife soll jetzt für jeden Monat ausgegeben werden, wieviele Tage dieser hat.
+	Für den Monat Februar soll also z.B. "`Der Monat Februar hat 28 Tage."' ausgegeben werden.
+
+	\begin{lstlisting}
+  String namen[] = new String[] {
+	  "Januar", "Februar", "März", "April",
+	  "Mai", "Juni", "Juli", "August",
+	  "September", "Oktober", "November", "Dezember" };
+  int tage[] = new int[] {
+	  31, 28, 31, 30,
+	  31, 30, 31, 31,
+	  30, 31, 30, 31 };
+
+  for (int i = 0; i < namen.length; i++) {
+	  System.out.println("Der Monat " + namen[i]
+			  + " hat " + tage[i] + " Tage.");
+  }
+	\end{lstlisting}
+	}
+  \item{
+	Das Array $zahlenfolge$ soll um die Zahlen $108$, $540$ und $7200$ erweitert werden.
+	\begin{lstlisting}
+	int[] zahlenfolge = new int[] { 4, 8, 15, 16, 23, 42 };
+	\end{lstlisting}
+	(Hinweis: Dazu muss ein neues Array angelegt werden und die Zahlen in dieses übertragen werden.)
+
+	\begin{lstlisting}
+  int[] zahlenfolge = new int[] { 4, 8, 15, 16, 23, 42 };
+  int[] neueZF = new int[zahlenfolge.length + 3];
+
+  for (int i = 0; i < zahlenfolge.length; i++) {
+	  neueZF[i] = zahlenfolge[i];
+  }
+
+  neueZF[neueZF.length - 3] = 108;
+  neueZF[neueZF.length - 2] = 540;
+  neueZF[neueZF.length - 1] = 7200;
+
+  for (int i = 0; i < zahlenfolge.length; i++) {
+	  System.out.print(neueZF[i] + " ");
+  }
+	\end{lstlisting}
+	}
+  \item{
+	Die Zahlenfolge $1, 1, 2, 3, 5, 8, 13, \ldots$ nennt man Fibonacci-Zahlen. Dabei entspricht jede Zahl
+	in der Folge gerade der Summe ihrer beiden Vorgänger: $1+1=2, 1+2=3, 2+3=5, 3+5=8, \ldots$
+
+	Schreibe eine Schleife, die alle Fibonacci-Zahlen ausgibt, die kleiner als $1000$ sind.
+
+	\begin{lstlisting}
+  int a = 1;
+  int b = 1;
+  int t;
+
+  System.out.print("1 ");
+
+  while (b < 1000) {
+	  System.out.print(b + " ");
+	  t = a + b;
+	  a = b;
+	  b = t;
+  }
+	\end{lstlisting}
+	}
+\end{enumerate}
+
+\end{document}
+
