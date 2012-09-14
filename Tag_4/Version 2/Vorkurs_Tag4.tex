@@ -34,7 +34,7 @@
 \section{Über mich}
 \begin{frame}
 	\frametitle{Über mich}
-	Daniel Hoff
+	\textbf{Daniel Hoff}
 	\begin{itemize}
 		\item{5. Semester Informatik}
 		\item{aktiver Fachschafter}
@@ -70,7 +70,7 @@ public class Main {
 		\item{zeitaufwändig}
 		\item{(zu) viel Code}
 		\item{unübersichtlich}
-		\item{Anderungen kosten noch mehr Zeit}
+		\item{Änderungen kosten noch mehr Zeit}
 		\item{Code oft nicht wiederverwendbar}
 		\item{Arbeitsteilung kaum möglich}
 	\end{itemize}
@@ -176,7 +176,7 @@ public class Main() {
 		zaehleBis(!\color{red}\textbf{10}!);
 	}
 
-	public static void zaehleBis(!\color{red}\textbf{int z}!) {
+	public static void zaehleBis(!\textbf{\color{blue}int \color{red}z}!) {
 		for (int i = 1; i <= !\color{red}\textbf{z}!; i++) {
 			System.out.println(i);
 		}
@@ -193,7 +193,7 @@ public static void zaehleBis(!\color{blue}int \color{red}z!) {
 }
 	\end{lstlisting}
 	\begin{itemize}
-		\item{In die Runden Klammern kommen die Paramter}
+		\item{In die runden Klammern kommen die Paramter}
 		\item{Parameter werden mit Komma getrennt:
 			\begin{lstlisting}[escapechar=!]
 (!\color{blue}int \color{red}a!, !\color{blue}boolean \color{red}b!, !\color{blue}double \color{red}c!)
@@ -212,7 +212,7 @@ pulic static void main() {
 }
 	\end{lstlisting}
 	\begin{itemize}
-		\item{Parameter die man übergeben möchte durch Komma getrennt in die Runden Klammern}
+		\item{Parameter, die man übergeben möchte, durch Komma getrennt in die Runden Klammern}
 	\end{itemize}
 \end{frame}
 
@@ -251,7 +251,8 @@ public class Main {
 		zaehleVonBis(!\color{blue}5!, !\color{red}10!);
 	}
 	
-	public static void zaehleVonBis(int !\color{blue}v!, int !\color{red}b!) {
+	public static void 
+		zaehleVonBis(int !\color{blue}v!, int !\color{red}b!) {
 		for (int i = !\color{blue}v!; i <= !\color{red}b!; i++) {
 			System.out.println(i);
 		}
@@ -317,7 +318,9 @@ public static !\color{blue}int! zaehleVonBis(int v, int b) {
 		\item{v = 1, b = 9
 			\begin{itemize}
 				\item{return 9 - 1 + 1 = 9}
-				\item{9 wird zurückgegeben}
+					\begin{itemize}
+						\item{9 wird zurückgegeben}
+					\end{itemize}
 			\end{itemize}
 		}
 		\item{{\color{red}x} wird der Wert 9 zugewiesen}
@@ -325,15 +328,15 @@ public static !\color{blue}int! zaehleVonBis(int v, int b) {
 \end{frame}
 
 \begin{frame}[containsverbatim]
-	\frametitle{Methodenkopf}
+	\frametitle{Generell}
 	\begin{lstlisting}[escapechar=!]
-public static !\color{blue}Rückgabewert! !\color{green}Name! (!\color{red}Parameter!) {
+public static !\color{blue}Rückgabetyp! !\color{green}Name! (!\color{red}Parameter!) {
 	// Methodenrumpf
 	!\color{blue}return! ... ; 
 }
 	\end{lstlisting}
 	\begin{itemize}
-		\item{Wenn der {\color{blue}Rückgabewert} \textbf{void} ist, darf kein {\color{blue}return} vorkommen}
+		\item{Wenn der {\color{blue}Rückgabetyp} \textbf{void} ist, darf kein {\color{blue}return} vorkommen}
 	\end{itemize}
 \end{frame}
 
@@ -380,6 +383,7 @@ public class Main {
 	\end{itemize}
 \end{frame}
 	
+\subsection{Wie?}
 \begin{frame}[containsverbatim]
 	\frametitle{Beispiel mit Klassenvariablen}
 	\begin{lstlisting}[escapechar=!]
@@ -390,7 +394,8 @@ public class Main {
 		System.out.println(wurdeAusgegeben);
 	}
 	
-	public static int zaehleVonBis(int v, int b) {
+	public static int 
+		zaehleVonBis(int v, int b) {
 		for (int i = v; i <= b; i++) {
 			System.out.println(i);
 		}
@@ -419,13 +424,33 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \section{Aufgabe}
 \begin{frame}
 	\frametitle{Vorstellung der Aufgabe}
+	\begin{columns}[T]
+		\column{0.5\textwidth}
+			\includegraphics[width=\textwidth]{gfx/bahnticketautomat_buchen}
+		\column{0.5\textwidth}
+			\includegraphics[width=\textwidth]{gfx/bahnticketautomat_bezahlen}
+	\end{columns}
+	\vspace{\baselineskip}
+	\begin{columns}[T]
+		\column{0.5\textwidth}
+			\includegraphics[width=\textwidth]{gfx/bahnticketautomat_rueckgeld}
+		\column{0.5\textwidth}
+		\pause
+			\includegraphics[width=\textwidth]{gfx/Wait-what-meme-rage-face.jpg}
+	\end{columns}
 	
 \end{frame}
 
 \section{Quellen \& Lizenz}
 \begin{frame}
 	\frametitle{Quellen und Lizenz}
-	
+	\begin{center}
+		\includegraphics[width=250px]{gfx/fsi}
+	\end{center}
+	\begin{itemize}
+		\item{Original von Samuel Zeitvogel}
+		\item{Überarbeitet 2012 von Daniel Hoff}
+	\end{itemize}
 \end{frame}
 
 \end{document}
