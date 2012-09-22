@@ -1,0 +1,446 @@
+\documentclass[final]{beamer}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{xspace}
+
+
+\setcounter{tocdepth}{1}
+\usetikzlibrary{arrows,shapes}
+
+\DeclareGraphicsExtensions{.pdf,.png}
+
+\newcommand{\keyWord}[1]{\textbf{#1}}
+\newcommand{\ra}{\ensuremath{\rightarrow}\xspace}
+
+\usetheme{Goettingen}
+\mode<presentation>
+
+\title{Programmiervorkurs für Erstsemester}
+
+\setbeamertemplate{title page}{
+  \begin{center}
+    \color{black}
+      \resizebox{\textwidth}{!}{Programmiervorkurs}\\
+      \vspace{0.3\baselineskip}
+      \huge{Einführung in Java}
+      \vfill
+      \large{Christian Zimmer}\\
+      \tiny{WS 2012/2013}
+  \end{center}
+}
+
+\begin{document}
+
+\lstset{tabsize=4}
+\lstset{basicstyle=\small}
+\lstset{language=java}
+
+\begin{frame}
+  
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Programmiervorkurs für Erstsemester}
+  \tableofcontents
+\end{frame}
+
+\section{Ablauf}
+\begin{frame}
+  \frametitle{Ablauf}
+  \begin{itemize}
+    \item{09:30 Vorstellung der Lösungen des Vortages}
+    \item{ab 10:00 Vorlesung}
+    \item{90 min Mittagspause}
+    \item{gegen 12:30 / 13:00 Übungen}
+  \end{itemize}
+\end{frame}
+
+\section{Technologie}
+\begin{frame}
+  \frametitle{Technologie}
+    \begin{tikzpicture}
+    \tikzstyle{pfeil} = [rotate=-90, fill=blue,color=blue,single arrow,draw, minimum height=1.5cm,minimum width=1.5cm]
+    \tikzstyle{beschriftung} = [node distance=0.7cm, right]
+    \tikzstyle{box} = [rounded corners=8pt, minimum height=1.5cm,minimum width=0.9\textwidth,draw,fill=white]
+      \node at (0,-3) [minimum height=7.5cm,minimum width=\textwidth,fill=none]{}; 
+      \node<2-> (A) at (0,-1.3) [pfeil]{};
+      \node<3-> (B) at (0,-4.3) [pfeil]{};
+      \node<1-> at (0,0) [box]{Quellcode (Java)};
+      \node<2-> at (0,-3) [box]{Zwischencode (Bytecode)};
+      \node<3-> at (0,-6) [box]{Maschinencode};
+      \node<2-> [right of=A, beschriftung] {Compiler};
+      \node<3-> [right of=B, beschriftung] {Laufzeitumgebung (JVM)};
+    \end{tikzpicture}
+\end{frame}
+
+\section{Variablen}
+\begin{frame}
+  \frametitle{Variablen}
+  \begin{itemize}
+    \item{Speicher für Werte, die sich ändern können}
+    \item{Primitive Datentypen}
+      \begin{itemize}
+        \item{Ganzzahlen}
+        \item{Kommazahlen}
+        \item{Wahrheitswerte}
+        \item{Zeichen}
+      \end{itemize}
+    \item{Referenzdatentypen}
+      \begin{itemize}
+        \item{Zeichenketten}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{Datentypen}
+\begin{frame}
+  \frametitle{Datentypen}
+  \begin{itemize}
+    \item{Ganzzahlen}
+    \begin{itemize}
+      \item{\keyWord{byte} (8 Bit / 1 Byte)}
+      \item{\keyWord{short} (16 Bit / 2 Byte)}
+      \item{\keyWord{int} (32 Bit / 4 Byte)}
+      \item{\keyWord{long} (64 Bit / 8 Byte)}
+    \end{itemize}
+    \item{Kommazahlen (Gleitkommazahlen)}
+    \begin{itemize}
+      \item{\keyWord{float} (32 Bit / 4 Byte)}
+      \item{\keyWord{double} (64 Bit / 8 Byte)}
+    \end{itemize}
+  \end{itemize}
+  \begin{itemize}
+    \item{Unterscheiden sich jeweils nur in ihrem Wertebereich}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Datentypen}
+  \begin{itemize}
+    \item{Wahrheitswerte}
+    \begin{itemize}
+      \item{\keyWord{boolean}}
+      \item{\keyWord{true} oder \keyWord{false}}
+    \end{itemize}
+  \end{itemize}
+  \begin{itemize}
+    \item{1 Zeichen (keine Zeichenkette)}
+    \begin{itemize}
+      \item{\keyWord{char}}
+      \item{2 Byte lang}
+      \item{Darstellung als 16-Bit-Unicode-Wert}
+    \end{itemize}
+  \end{itemize}
+
+  \begin{itemize}
+    \item Zeichenketten
+    \begin{itemize}
+      \item \keyWord{String}
+      \item Referenzdatentyp
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{Wertebereiche}
+\begin{frame}[fragile]
+  \frametitle{Variablen - Wertebereiche}
+  \begin{center}
+    \begin{tabular}{l|c|c|l}
+      \textbf{Type} & \multicolumn{2}{c|}{\textbf{Länge}} & \textbf{Wertebereich} \\
+      & \textbf{Byte} &\textbf{Bit}  & \\
+      \hline
+      boolean & - &  - & true oder false \\
+      char    & 2 & 16 & Unicode Zeichen \\
+      byte    & 1 &  8 & $-128$ bis 127 \\
+      short   & 2 & 16 & $-32768$ bis 32767 \\
+      int     & 4 & 32 & $-2.147.483.648$ bis 2.147.483.647 \\
+      long    & 8 & 64 & $-2^{63}$ bis $2^{63}-1$\\
+      float   & 4 & 32 & $\pm1,4E-45$ bis $\pm3,4E+38$\\
+      double  & 8 & 64 & $\pm4,9E-324$ bis $\pm1,7E+308$\\
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\section{Variablennamen}
+\begin{frame}[fragile]
+  \frametitle{Variablennamen}
+  \begin{itemize}
+    \item Vorgaben
+    \begin{itemize}
+      \item So MÜSSEN Namen sein, sonst gibt es Compiler-Fehler
+      \item Erlaubte Zeichen: Buchstaben, Zahlen und \_
+      \item Erstes Zeichen darf keine Zahl sein
+    \end{itemize}
+    \item Gesperrte Namen
+      \begin{itemize}
+        \item z.B. \keyWord{true}, \keyWord{false}, \keyWord{new}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Variablennamen}
+  \begin{itemize}
+    \item Konventionen
+    \begin{itemize}
+      \item So SOLLTEN Namen sein, aber der Compiler würde es auch sonst kompilieren
+      \item sinnvolle, aussagekräftige Namen
+      \item keine Abkürzungen
+      \item Substantive
+      \item Nur lateinische Zeichen, Zahlen und \_
+      \begin{itemize}
+        \item KEIN ä, ö, ü, ß, ...
+      \end{itemize}
+      \item camelCase-Schreibweise
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Verwendung}
+\begin{frame}
+  \begin{center}
+    \Huge{zur Verwendung}
+  \end{center}
+\end{frame}
+
+\subsection{Deklaration und Wertzuweisung}
+\begin{frame}[fragile]
+  \frametitle{Deklaration}
+  \begin{itemize}
+  \item Bekanntmachen der Variablen:
+    \begin{lstlisting}[morekeywords={type}]
+type name;
+    \end{lstlisting}
+  \item Beispiele:
+    \begin{lstlisting}
+int age;
+char gender;
+boolean isStudent;
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Wertzuweisung}
+  \begin{itemize}
+  \item Der Variablen einen Wert zuweisen:
+    \begin{lstlisting}[morekeywords={type}]
+name = wert;
+    \end{lstlisting}
+  \item Die Variable muss deklariert worden sein
+  \item Beispiele:
+    \begin{lstlisting}[morekeywords={String}]
+int age; age = 20;
+float balance; balance = 4.2f;
+char gender; gender = 'm';
+String name; name = "Douglas Adams";
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Deklaration und Wertzuweisung}
+  \begin{itemize}
+  \item Wert direkt beim Deklarieren auch zuweisen:
+    \begin{lstlisting}[morekeywords={type}]
+type name = value;
+    \end{lstlisting}
+  \item Beispiele:
+    \begin{lstlisting}[morekeywords={String}]
+double average = -5.2;
+boolean isStudent = true;
+String answer = "42";
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\subsection{Ausgabe}
+\begin{frame}[fragile]
+  \frametitle{Ausgabe}
+  \begin{itemize}
+    \item Sonst würde es nachher ziemlich langweilig
+    \begin{lstlisting}[morekeywords={type}]
+System.out.println(ausgabe);
+System.out.print(ausgabe);
+    \end{lstlisting}
+    \item Beispiele:
+    \begin{lstlisting}[morekeywords={type}]
+System.out.println("Hallo Welt");
+
+String name = "Welt";
+System.out.print("Hallo ");
+System.out.print(name);
+System.out.println();
+\end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\section{Arithmetik}
+\begin{frame}[fragile]
+  \frametitle{Arithmetik}
+  \begin{center}
+  \begin{tabular}{l|c|c}
+    \textbf{Bezeichnung} & \textbf{Operator}& \textbf{Anwendung}\\
+    \hline
+    Addition       & $+$  & a + b   \\
+    Subtraktion    & $-$  & a $-$ b \\
+    Multiplikation & *    & a * b   \\
+    Division       & /    & a / b   \\
+    Inkrement      & ++   & a++     \\
+    Dekrement      & $--$ & a$--$   \\
+    Modulo         & \%   & a \% b  \\
+  \end{tabular}
+  \end{center}
+
+  \begin{itemize}
+    \item[] Ergebnis kann Variablen zugewiesen werden:
+    \begin{lstlisting}[morekeywords={type}]
+int result = 5 + 2;
+double division = 3.5 / (result - 1);
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\subsection{Modulo}
+\begin{frame}[fragile]
+  \frametitle{Modulo (Restwertberechnung)}
+  \begin{itemize}
+    \item Das Ergebnis des Modulo ist der Rest der Division:
+    \begin{lstlisting}
+26 / 5 =  5 Rest 1    =>    26 % 5 = 1
+
+30 / 2 = 15 Rest 0    =>    30 % 2 = 0
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\subsection{In- bzw. Dekrement}
+\begin{frame}[fragile]
+  \frametitle{In- bzw. Dekrement}
+  \begin{itemize}
+    \item Erhöht bzw. erniedrigt den Wert einer Variablen
+    \begin{lstlisting}
+int x = 42;
+x++; 
+x--;
+    \end{lstlisting}
+    \item Post- bzw. Präinkrement sind zu beachten
+    \begin{lstlisting}
+int x = 23;
+System.out.println(++x);
+
+int y = 23;
+System.out.println(y++);
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\subsection{Integer-Division}
+\begin{frame}[fragile]
+  \frametitle{Integer-Division}
+  \begin{itemize}
+    \begin{lstlisting}
+int x = 7;
+
+int y = 2;
+
+double z = x / y;
+    \end{lstlisting}
+    \item[] Welchen Wert beinhaltet z? \qquad \pause z = 3.0
+  \end{itemize}
+\end{frame}
+
+\subsection{Verknüpfung von Zeichenketten}
+\begin{frame}[fragile]
+  \frametitle{Verknüpfung von Zeichenketten}
+  \begin{itemize}
+    \item Verknüpfung durch den +-Operator
+    \begin{lstlisting}[morekeywords={type,String}]
+String name = "Hallo, " + "Welt";
+    \end{lstlisting}
+    \item auch gemischt mit Zahlen möglich
+    \begin{lstlisting}
+int x = 5;
+String text = "x hat den Wert " + x;
+    \end{lstlisting}
+    \item Ausgabe:
+    \begin{lstlisting}
+System.out.println("x ist " + x);
+System.out.print("Hallo, " + "Student");
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\section{Konvertierung}
+\begin{frame}[fragile]
+  \frametitle{Explizite Konvertierung}
+  \begin{itemize}
+    \item Variablenwerte können umgewandelt werden 
+    \begin{itemize}
+      \item explizites "`Casten"'
+    \end{itemize}
+    \begin{lstlisting}
+int x = 42;
+short y = (short)x;
+    \end{lstlisting}
+    \item[] Welchen Wert beinhaltet y? \qquad \uncover<2->{ y = 42}
+    \begin{lstlisting}
+double a = 512.6;
+int b = (int)a;
+    \end{lstlisting}
+    \item[] Welchen Wert beinhaltet b? \qquad \uncover<3->{ b = 512}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Implizite Konvertierung}
+  \begin{itemize}
+    \item[] Einige Typen können ohne Probleme in andere umgewandelt werden\\
+\keyWord{byte \ra short \ra int \ra long \ra float \ra double}
+    \begin{lstlisting}
+int x = 42;
+float y = (float)x;
+    \end{lstlisting}
+    ist äquivalent zu:
+    \begin{lstlisting}
+int x = 42;
+float y = x;
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Zurück zum Divisionsproblem}
+  \begin{itemize}
+    \begin{lstlisting}
+int x = 7;
+
+int y = 2;
+
+double z = x / y;
+    \end{lstlisting}
+    \item Bei Rechnungen wird in den bestmöglichen Typen gecastet
+    
+    \item[]\keyWord{byte \ra short \ra int \ra long \ra float \ra double}
+    \item So funktioniert es:
+    \begin{lstlisting}
+double z = (double) x / y;
+    \end{lstlisting}    
+  \end{itemize}
+\end{frame}
+
+\section{Demonstration NetBeans (Debugging)}
+\begin{frame}[fragile]
+  \begin{center}
+    \Huge{Demonstration NetBeans \\ (Debugging)}
+  \end{center}
+\end{frame}
+
+\end{document}
