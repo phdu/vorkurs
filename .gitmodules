@@ -1,0 +1,3 @@
+[submodule "Tag_1/FSIBeamerTheme"]
+	path = Tag_1/FSIBeamerTheme
+	url = git@git.hska.info:vorlagen/fsibeamertheme.git

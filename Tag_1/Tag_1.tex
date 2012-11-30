@@ -8,7 +8,8 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{xspace}
-
+\newcommand{\ThemeFolder}{FSIBeamerTheme}
+\RequirePackage{\ThemeFolder/beamerthemeFSI}
 
 \setcounter{tocdepth}{1}
 \usetikzlibrary{arrows,shapes}
@@ -18,14 +19,14 @@
 \newcommand{\keyWord}[1]{\textbf{#1}}
 \newcommand{\ra}{\ensuremath{\rightarrow}\xspace}
 
-\usetheme{Goettingen}
+
 \mode<presentation>
 
 \title{Programmiervorkurs für Erstsemester}
 
 \setbeamertemplate{title page}{
   \begin{center}
-    \color{black}
+    \color{FSIblue}
       \resizebox{\textwidth}{!}{Programmiervorkurs}\\
       \vspace{0.3\baselineskip}
       \huge{Einführung in Java}
@@ -66,7 +67,7 @@
 \begin{frame}
   \frametitle{Technologie}
     \begin{tikzpicture}
-    \tikzstyle{pfeil} = [rotate=-90, fill=blue,color=blue,single arrow,draw, minimum height=1.5cm,minimum width=1.5cm]
+    \tikzstyle{pfeil} = [rotate=-90, fill=FSIblue,color=FSIblue,single arrow,draw, minimum height=1.5cm,minimum width=1.5cm]
     \tikzstyle{beschriftung} = [node distance=0.7cm, right]
     \tikzstyle{box} = [rounded corners=8pt, minimum height=1.5cm,minimum width=0.9\textwidth,draw,fill=white]
       \node at (0,-3) [minimum height=7.5cm,minimum width=\textwidth,fill=none]{}; 
