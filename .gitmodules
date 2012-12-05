@@ -1,3 +1,12 @@
 [submodule "Tag_1/FSIBeamerTheme"]
 	path = Tag_1/FSIBeamerTheme
 	url = git@git.hska.info:vorlagen/fsibeamertheme.git
+[submodule "Tag_2/FSIBeamerTheme"]
+	path = Tag_2/FSIBeamerTheme
+	url = git@git.hska.info:vorlagen/fsibeamertheme.git
+[submodule "Tag_4/FSIBeamerTheme"]
+	path = Tag_4/FSIBeamerTheme
+	url = git@git.hska.info:vorlagen/fsibeamertheme.git
+[submodule "Tag_3/FSIBeamerTheme"]
+	path = Tag_3/FSIBeamerTheme
+	url = git@git.hska.info:vorlagen/fsibeamertheme.git
