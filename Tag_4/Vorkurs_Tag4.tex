@@ -20,9 +20,15 @@
 
 \setbeamertemplate{title page}{
   \begin{center}
-	{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+    \color{FSIblue}
+      \resizebox{\textwidth}{!}{Programmiervorkurs}\\
+      \vspace{0.3\baselineskip}
+      \huge{Einführung in Java}\\
+      \huge{Tag 4}
+      \vfill
+      \large{Daniel Hoff}\\
+      \tiny{SS 2013}
   \end{center}
-  \tableofcontents
 }
 
 \begin{document}
@@ -35,12 +41,16 @@
   \titlepage
 \end{frame}
 
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
 \section{Über mich}
 \begin{frame}
 	\frametitle{Über mich}
 	\textbf{Daniel Hoff}
 	\begin{itemize}
-		\item{5. Semester Informatik}
+		\item{6. Semester Informatik}
 		\item{aktiver Fachschafter}
 		\item{gewählter studentischer Vertreter im Fakultätsrat}
 	\end{itemize}
@@ -274,7 +284,8 @@ public class Main {
 		!\color{blue}int! !\color{red}x! = zaehleVonBis(1, 9);
 	}
 	
-	public static !\color{blue}int! zaehleVonBis(int v, int b) {
+	public static !\color{blue}int! 
+		zaehleVonBis(int v, int b) {
 		for (int i = v; i <= b; i++) {
 			System.out.println(i);
 		}
@@ -353,7 +364,8 @@ public class Main {
 		!\color{blue}int! !\color{red}x! = zaehleVonBis(1, 9);
 	}
 	
-	public static !\color{blue}int! zaehleVonBis(int v, int b) {
+	public static !\color{blue}int! 
+		zaehleVonBis(int v, int b) {
 		for (int i = v; i <= b; i++) {
 			System.out.println(i);
 		}
@@ -415,7 +427,7 @@ public class Main {
 	\begin{itemize}
 		\item{Deklaration direkt nach Klassendeklaration}
 		\item{\textbf{public static} {\color{blue}Datentyp} {\color{red}Bezeichner};}
-		\item{sichtbar in der ganzen Klassenvariable}
+		\item{sichtbar in der ganzen Klasse}
 		\item{Ohne manuelle Zuweisung wird der Defaultwert zugewiesen}
 		\item{Beispiel:
 			\begin{lstlisting}[escapechar=!]
