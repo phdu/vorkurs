@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{amssymb}
-\newcommand{\ThemeFolder}{FSIBeamerTheme}
+\newcommand{\ThemeFolder}{../FSIBeamerTheme}
 \RequirePackage{\ThemeFolder/beamerthemeFSI}
 
 \DeclareGraphicsExtensions{.pdf,.png}
@@ -21,12 +21,12 @@
   \begin{center}
 	{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
   \end{center}
-  \tableofcontents
+  
 }
 
 \begin{document}
 
-\lstset{tabsize=4}
+\lstset{tabsize=2}
 \lstset{basicstyle=\small}
 \lstset{language=java}
 \lstset{showstringspaces=false}
@@ -165,7 +165,7 @@ public class GladOS {
 		\item{1.0 - (0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1) == 0.0 ?}
 		\item{0.02d == 0.02f ?}
 		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\ 
-		0.02d - 0.02f < Math.abs(4.5E-10) ?}
+		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
 	\end{itemize}
 \end{frame}
 
@@ -192,8 +192,8 @@ public class GladOS {
 			& \textbf{a}  & & \textbf{b} & & \textbf{\&} \\
 			\hline
 			& 0 & & 0 & &  0\\
-			& 0 & & 1 & &  1\\
-			& 1 & & 0 & &  1\\
+			& 0 & & 1 & &  0\\
+			& 1 & & 0 & &  0\\
 			& 1 & & 1 & &  1\\
 		\end{tabular}
 		& &
@@ -241,7 +241,7 @@ public class GladOS {
 	\begin{center}
 	\begin{tabular}{|l c | l|}
 	 \hline
-		++, -- --  & &  Increment und Dekrement \\
+		++, -- --  & &  Inkrement und Dekrement \\
 		 \hline
 		! & & Negation \\ \hline
 		
@@ -326,14 +326,14 @@ if (answer == "Cake") {
 
 \begin{frame}[containsverbatim]
 	\frametitle{noch ein etwas praktischeres Beispiel:}
-	\begin{lstlisting}[escapechar=!]
+	\begin{lstlisting}
 double a, b;
 ...
 if (a != 0.0) {
-System.out.print("b/a: ");
-System.out.println(b/a);
+	System.out.print("b/a: ");
+	System.out.println(b/a);
 } else {
-System.out.println("Division durch 0!");
+	System.out.println("Division durch 0!");
 }
 	\end{lstlisting}	
 	Hier ist die Bedingung das Ergebnis eines Vergleichs.	
@@ -351,6 +351,65 @@ entspricht der Abfrage folgender Bedingungen:
 if (istStudent == false) { ... }
 if (!(istStudent == true)) { ... }
 
+	\end{lstlisting}
+\end{frame}
+
+\subsection{Verschachtelung}
+\begin{frame}[containsverbatim]
+	\frametitle{Verschachtelte if-Abfragen}
+	\begin{lstlisting}
+long losnummer;
+...
+if (losnummer > 3) {
+	if (losnummer % 315 == 4) {
+		System.out.println("Gewinnerlos");
+	}
+} else {
+	System.out.println("Verliererlos");
+}
+	\end{lstlisting}
+	=> Vorsicht! Wird leicht unübersichtlich!
+\end{frame}
+
+\section{switch-case}
+\begin{frame}[containsverbatim]
+	\frametitle{Fallunterscheidung durch Switch/Case}
+	\begin{itemize}
+		\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
+		\item{nur ganzzahlige Typen oder char}
+		\item{Anweisungen für alle relevanten Werte, die die Variable annehmen kann}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+  \frametitle{Fallunterscheidung durch Switch/Case}
+  \begin{itemize}
+	\item{jeder Wert darf nur einmal vorkommen}
+	\item{läuft durch bis break oder bis zum Ende des Switch}
+	\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Beispiel}
+\begin{frame}[containsverbatim]
+	\frametitle{Beispiel}
+	\begin{lstlisting}
+int fall;
+...
+switch (fall) {
+case 0:
+	System.out.println("Operation erfolgreich");
+	break;
+case 1:
+	System.out.println("Abgebrochen");
+	// fall through
+case 2:
+	System.out.println("Operation gescheitert");
+	break;
+default:
+	System.out.println("Unbekannter Fall!");
+}
 	\end{lstlisting}
 \end{frame}
 
@@ -390,73 +449,16 @@ if (a == 'r') {
 	\end{tabular}
 \end{frame}
 
-\subsection{Verschachtelung}
-\begin{frame}[containsverbatim]
-	\frametitle{Verschachtelte if-Abfragen}
-	\begin{lstlisting}
-long losnummer;
-...
-if (losnummer > 3) {
-	if (losnummer % 315 == 4) {
-		System.out.println("Gewinnerlos");
-	}
-} else {
-	System.out.println("Verliererlos");
-}
-	\end{lstlisting}
-	=> Vorsicht! Wird leicht unübersichtlich!
-\end{frame}
-
-\section{switch-case}
-\begin{frame}[containsverbatim]
-	\frametitle{Fallunterscheidung durch Switch/Case}
-	\begin{itemize}
-		\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
-		\item{nur ganzzahlige Typen oder char}
-		\item{Anweisungen für alle relevanten Werte, die die Variable annehmen kann}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[containsverbatim]
-	\frametitle{Fallunterscheidung durch Switch/Case}
-	\begin{itemize}
-		\item{jeder Wert darf nur einmal vorkommen}
-		\item{läuft durch bis break oder bis zum Ende des Switch}
-		\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt}
-	\end{itemize}
-\end{frame}
-
-
-\subsection{Beispiel}
-\begin{frame}[containsverbatim]
-	\frametitle{Beispiel}
-	\begin{lstlisting}
-int fall;
-...
-switch (fall) {
-case 0:
-	System.out.println("Operation erfolgreich");
-	break;
-case 1:
-	System.out.println("Abgebrochen");
-	// fall through
-case 2:
-	System.out.println("Operation gescheitert");
-	break;
-default:
-	System.out.println("Unbekannter Fall!");
-}
-	\end{lstlisting}
-\end{frame}
-
 \section{weitere Planung}
 \begin{frame}
 \frametitle{weitere Planung}
-	\begin{itemize}
-		\item{weiter gehts in 90min}
-		\item{wir gehen ins Emaille essen, wer mit will trifft uns in 5 min unten vor der Fachschaft}
-		\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
-	\end{itemize}
+  \begin{itemize}
+	\item{weiter gehts in 90min}
+	\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
+	\item{morgen früh ab 9:30 Uhr findet die Besprechung der Aufgaben von heute Nachmittag statt}
+	\item{danach (ca. ab 10:00 Uhr) beginnt die nächste Vorlesung. Themen: Arrays und Schleifen}
+	\item{außerdem bin ich der Meinung, dass englische Inhalte nicht übersetzt werden sollten.}
+  \end{itemize}
 \end{frame}
 
 \end{document}
