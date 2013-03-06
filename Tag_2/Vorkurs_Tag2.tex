@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{amssymb}
-\newcommand{\ThemeFolder}{FSIBeamerTheme}
+\newcommand{\ThemeFolder}{../FSIBeamerTheme}
 \RequirePackage{\ThemeFolder/beamerthemeFSI}
 
 \DeclareGraphicsExtensions{.pdf,.png}
@@ -21,12 +21,12 @@
   \begin{center}
 	{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
   \end{center}
-  \tableofcontents
+  
 }
 
 \begin{document}
-
-\lstset{tabsize=4}
+\shorthandoff{"}
+\lstset{tabsize=2}
 \lstset{basicstyle=\small}
 \lstset{language=java}
 \lstset{showstringspaces=false}
@@ -46,7 +46,6 @@
 \end{frame}
 
 \section{Inhalte}
-\subsection{Vorkurs}
 \begin{frame}
 	\frametitle{Inhaltsübersicht Vorkurs}
 	\begin{itemize}
@@ -57,7 +56,6 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{Tag 2}
 \begin{frame}
 	\frametitle{Inhaltsübersicht Tag 2}
 	\begin{itemize}
@@ -107,6 +105,7 @@ Zeilenkommentar:
 		\item{Nachfolgenden Entwicklern Hinweise geben, wie der Quelltext zu verstehen ist}
 		\item{Sehr praktisch als Gedächtnisstütze: TODOs setzen}
 		\item{Zum Testen können Teile des Quellcodes zeitweise auskommentiert werden}
+		\item{Javadoc und Blockkommentare stehen über der zu kommentierenden Klasse oder Methode}
 	\end{itemize}
 \end{frame}
 
@@ -120,8 +119,9 @@ Zeilenkommentar:
 */
 public class GladOS {
 	/*
-	* Die wichtigste Methode fuer uns: 
-	* hier kommt alles rein, was wir machen
+	* Die wichtigste Methode: 
+	* alles was ausgefuehrt wird muss zumindest 
+	* hier aufgerufen werden.
 	*/
 	public static void main(String[] args){
 		// the cake is a lie
@@ -130,6 +130,16 @@ public class GladOS {
 }
 
 	\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deklaration einer Methode mit Javadoc.}
+	\includegraphics[scale=0.5]{JavaDoc_example_1_1.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Verwendung der Methode mit Javadoc.}
+	\includegraphics[scale=0.5]{JavaDoc_example_2_1.png}
 \end{frame}
 
 \section{boolean}
@@ -159,16 +169,6 @@ public class GladOS {
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Vergleich von Gleitkommazahlen}
-	\begin{itemize}
-		\item{1.0 - (0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1) == 0.0 ?}
-		\item{0.02d == 0.02f ?}
-		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\ 
-		0.02d - 0.02f < Math.abs(4.5E-10) ?}
-	\end{itemize}
-\end{frame}
-
 \subsection{Verknüpfungen}
 \begin{frame}
 	\frametitle{Boolsche Operatoren - Verknüpfungen}
@@ -192,8 +192,8 @@ public class GladOS {
 			& \textbf{a}  & & \textbf{b} & & \textbf{\&} \\
 			\hline
 			& 0 & & 0 & &  0\\
-			& 0 & & 1 & &  1\\
-			& 1 & & 0 & &  1\\
+			& 0 & & 1 & &  0\\
+			& 1 & & 0 & &  0\\
 			& 1 & & 1 & &  1\\
 		\end{tabular}
 		& &
@@ -241,12 +241,13 @@ public class GladOS {
 	\begin{center}
 	\begin{tabular}{|l c | l|}
 	 \hline
-		++, -- --  & &  Increment und Dekrement \\
+		++, -- --  & &  Inkrement und Dekrement \\
 		 \hline
 		! & & Negation \\ \hline
 		
 		*, /, \% & & Multiplikation, Division, Modulo \\ \hline
 		+, - & & Addition und Subtraktion \\ \hline
+		==, != & & Vergleich \\ \hline
 		\& & & Und \\ \hline
 		| & & Oder \\ \hline
 		\&\& & & Kurzschlussoperator Und \\ \hline
@@ -258,22 +259,32 @@ public class GladOS {
 	\end{center}
 \end{frame}
 
+\subsection{boolscher Ausdruck} 
+\begin{frame}
+	\frametitle{Definition: boolscher Ausdruck}
+	\begin{itemize}
+		\item{Bedingung A - kann wahr oder falsch sein}
+		\item{(Bedingung A || Bedingung B) \&\& Bedingung C}
+		\item{"Ich habe den Compagnion Cube" \&\& "Ich bin unsterblich" (kann der Compiler so nicht auswerten, Menschen schon)}
+	\end{itemize}
+\end{frame}
+
 \subsection{Beispiel}
 \begin{frame}
-	\frametitle{Beispiel: \\ein etwas längerer boolescher Ausdruck}
-	Sportwagen: maximal zwei Türen, keine Rücksitze, außerdem:
+	\frametitle{Beispiel: \\Schreibe einen boolschen Ausdruck in Java Syntax, der einen Sportwagen erkennt}
+	Unsere Definition eines Sportwagens:	\\
 	\begin{itemize}
+		\item{maximal zwei Türen, keine Rücksitze, außerdem:}
 		\item{Höchstgeschwindigkeit von mindestens 200 km/h und  Mindestbeschleunigung von 0 auf 100 km/h in 8 Sekunden}
 		\item{oder Höchstgeschwindigkeit von mindestens 280 km/h und mindestens 250 PS}
 	\end{itemize}
 \end{frame}
 
-\subsubsection{Variablen}
 \begin{frame}[containsverbatim]
 	\frametitle{Auszuwertende Variablen}
 	\begin{lstlisting}
 boolean hatRuecksitze; 
-// genau dann true, wenn das Auto Ruecksitze hat
+// dann true, wenn das Auto Ruecksitze hat
 int tueren; // Anzahl Tueren
 double beschleunigung; 
 // in Sekunden von 0 auf 100
@@ -281,6 +292,40 @@ double hoechstgeschwindigkeit; // in km/h
 double leistung; // in kW (nicht in PS!)
 1 PS ~ 0,735 kW
 	\end{lstlisting}
+\end{frame}
+
+\section{Gleitkommazahlen}
+\begin{frame}
+	\frametitle{Exkurs: Gleitkommazahlen}
+	\begin{itemize}
+		\item{Gleitkommazahlen in Java sind anfällig für Rundungsfehler}
+		\item{Zahlen die im Dezimalsystem endlich sind, sind das nicht zwangsläufig auch im Binärsystem}
+		\item{z.B. 0,1 Dezimal == 0,00011001100110011... Binär}
+		\item{=> 1.0 - (0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1) != 0.0}
+	\end{itemize}
+\end{frame}
+
+\subsection{Vergleiche}
+\begin{frame}
+	\frametitle{Exkurs: Gleitkommazahlen}
+	\begin{itemize}
+		\item{Schon der Variablentyp kann einen Unterschied machen}
+		\item{0.02d (double) == 0.02f (float) ?}
+		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\ 
+		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
+		\item{Math.abs(zahl) berechnet den Betrag von zahl}
+	\end{itemize}
+\end{frame}
+
+\subsection{Größenordungsprobleme}
+\begin{frame}
+	\begin{itemize}
+		\item{Achtung beim Verrechnen von Zahlen die einige Größenordungen auseinander liegen}
+		\item{z.B. 100000000000000000.0 + 8 = 100000000000000000.0}
+		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
+		\item{Die Basis muss alle relevanten Teile der Zahl enthalten die dann vom Exponent verschoben werden können}
+		\item{=> Es können sehr große und sehr kleine Zahlen gespeichert werden, aber nicht beides}
+	\end{itemize}
 \end{frame}
 
 \section{if}
@@ -301,13 +346,16 @@ if (Bedingung) {
 \end{frame}
 
 \begin{frame}[containsverbatim]
-	\frametitle{Kopf der Methode}
+	\frametitle{}
 	\begin{lstlisting}
-String answer = "Lernen";
+String answer = "studying";
 if (answer == "Cake") {
 	System.out.println("nice try");
 } else if (answer == "42"){
 	System.out.println("You got it!");
+} else if (answer == "studying"){
+	System.out.println("Not to everything,
+                       but very commendable");
 } else {
 	System.out.println("think harder!")
 }
@@ -326,14 +374,14 @@ if (answer == "Cake") {
 
 \begin{frame}[containsverbatim]
 	\frametitle{noch ein etwas praktischeres Beispiel:}
-	\begin{lstlisting}[escapechar=!]
+	\begin{lstlisting}
 double a, b;
 ...
 if (a != 0.0) {
-System.out.print("b/a: ");
-System.out.println(b/a);
+	System.out.print("b/a: ");
+	System.out.println(b/a);
 } else {
-System.out.println("Division durch 0!");
+	System.out.println("Division durch 0!");
 }
 	\end{lstlisting}	
 	Hier ist die Bedingung das Ergebnis eines Vergleichs.	
@@ -354,7 +402,67 @@ if (!(istStudent == true)) { ... }
 	\end{lstlisting}
 \end{frame}
 
-\subsubsection{switch/case vs. if/else}
+\subsection{Verschachtelung}
+\begin{frame}[containsverbatim]
+	\frametitle{Verschachtelte if-Abfragen}
+	\begin{lstlisting}
+long losnummer;
+...
+if (losnummer > 3) {
+	if (losnummer % 315 == 4) {
+		System.out.println("Gewinnerlos");
+	}
+} else {
+	System.out.println("Verliererlos");
+}
+	\end{lstlisting}
+	=> Vorsicht! Wird leicht unübersichtlich!
+\end{frame}
+
+\section{switch-case}
+\subsection{Überblick}
+\begin{frame}[containsverbatim]
+	\frametitle{Fallunterscheidung durch Switch/Case}
+	\begin{itemize}
+		\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
+		\item{nur ganzzahlige Typen oder char}
+		\item{Anweisungen für alle relevanten Werte, die die Variable annehmen kann}
+	\end{itemize}
+\end{frame}
+
+\subsection{Details}
+\begin{frame}[containsverbatim]
+  \frametitle{Fallunterscheidung durch Switch/Case}
+  \begin{itemize}
+	\item{jeder Wert darf nur einmal vorkommen}
+	\item{läuft durch bis break oder bis zum Ende des Switch}
+	\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Beispiele}
+\begin{frame}[containsverbatim]
+	\frametitle{Beispiel}
+	\begin{lstlisting}
+int fall;
+...
+switch (fall) {
+case 0:
+	System.out.println("Operation erfolgreich");
+	break;
+case 1:
+	System.out.println("Abgebrochen");
+	// fall through
+case 2:
+	System.out.println("Operation gescheitert");
+	break;
+default:
+	System.out.println("Unbekannter Fall!");
+}
+	\end{lstlisting}
+\end{frame}
+
 \begin{frame}[containsverbatim]
 \frametitle{switch/case verglichen mit if/else}
 	\begin{tabular}{c c c c}
@@ -390,73 +498,16 @@ if (a == 'r') {
 	\end{tabular}
 \end{frame}
 
-\subsection{Verschachtelung}
-\begin{frame}[containsverbatim]
-	\frametitle{Verschachtelte if-Abfragen}
-	\begin{lstlisting}
-long losnummer;
-...
-if (losnummer > 3) {
-	if (losnummer % 315 == 4) {
-		System.out.println("Gewinnerlos");
-	}
-} else {
-	System.out.println("Verliererlos");
-}
-	\end{lstlisting}
-	=> Vorsicht! Wird leicht unübersichtlich!
-\end{frame}
-
-\section{switch-case}
-\begin{frame}[containsverbatim]
-	\frametitle{Fallunterscheidung durch Switch/Case}
-	\begin{itemize}
-		\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
-		\item{nur ganzzahlige Typen oder char}
-		\item{Anweisungen für alle relevanten Werte, die die Variable annehmen kann}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[containsverbatim]
-	\frametitle{Fallunterscheidung durch Switch/Case}
-	\begin{itemize}
-		\item{jeder Wert darf nur einmal vorkommen}
-		\item{läuft durch bis break oder bis zum Ende des Switch}
-		\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt}
-	\end{itemize}
-\end{frame}
-
-
-\subsection{Beispiel}
-\begin{frame}[containsverbatim]
-	\frametitle{Beispiel}
-	\begin{lstlisting}
-int fall;
-...
-switch (fall) {
-case 0:
-	System.out.println("Operation erfolgreich");
-	break;
-case 1:
-	System.out.println("Abgebrochen");
-	// fall through
-case 2:
-	System.out.println("Operation gescheitert");
-	break;
-default:
-	System.out.println("Unbekannter Fall!");
-}
-	\end{lstlisting}
-\end{frame}
-
 \section{weitere Planung}
 \begin{frame}
 \frametitle{weitere Planung}
-	\begin{itemize}
-		\item{weiter gehts in 90min}
-		\item{wir gehen ins Emaille essen, wer mit will trifft uns in 5 min unten vor der Fachschaft}
-		\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
-	\end{itemize}
+  \begin{itemize}
+	\item{weiter gehts in ca. 90min}
+	\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
+	\item{morgen früh ab 9:30 Uhr findet die Besprechung der Aufgaben von heute Nachmittag statt}
+	\item{danach (ca. ab 10:00 Uhr) beginnt die nächste Vorlesung. Themen: Arrays und Schleifen}
+	\item{außerdem bin ich der Meinung, dass englische Inhalte nicht übersetzt werden sollten.}
+  \end{itemize}
 \end{frame}
 
 \end{document}
