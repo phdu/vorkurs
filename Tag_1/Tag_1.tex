@@ -32,7 +32,7 @@
       \huge{Einführung in Java}
       \vfill
       \large{Christian Zimmer}\\
-      \tiny{WS 2012/2013}
+      \tiny{SS 2013}
   \end{center}
 }
 
@@ -332,14 +332,24 @@ int x = 42;
 x++; 
 x--;
     \end{lstlisting}
-    \item Post- bzw. Präinkrement sind zu beachten
+\item[] Welchen Wert beinhaltet x? \uncover<2->{ x = 42}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Post- bzw. Präinkrement sind zu beachten}
+\begin{itemize}
     \begin{lstlisting}
 int x = 23;
 System.out.println(++x);
-
+\end{lstlisting}
+\item[] Wie lautet die Ausgabe und welchen Wert hat x? \uncover<2->{Ausgabe: \textbf{24}; x = 24 }
+\item[]\quad
+\begin{lstlisting}
 int y = 23;
 System.out.println(y++);
     \end{lstlisting}
+\item[] Wie lautet die Ausgabe und welchen Wert hat y? \uncover<3->{Ausgabe: \textbf{23}; y = 24 }
   \end{itemize}
 \end{frame}
 
