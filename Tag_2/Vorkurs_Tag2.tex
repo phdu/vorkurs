@@ -107,6 +107,7 @@ Zeilenkommentar:
 		\item{Nachfolgenden Entwicklern Hinweise geben, wie der Quelltext zu verstehen ist}
 		\item{Sehr praktisch als Gedächtnisstütze: TODOs setzen}
 		\item{Zum Testen können Teile des Quellcodes zeitweise auskommentiert werden}
+		\item{Javadoc und Blockkommentare stehen über der zu kommentierenden Klasse oder Methode}
 	\end{itemize}
 \end{frame}
 
@@ -120,8 +121,9 @@ Zeilenkommentar:
 */
 public class GladOS {
 	/*
-	* Die wichtigste Methode fuer uns: 
-	* hier kommt alles rein, was wir machen
+	* Die wichtigste Methode: 
+	* alles was ausgefuehrt wird muss zumindest 
+	* hier aufgerufen werden.
 	*/
 	public static void main(String[] args){
 		// the cake is a lie
@@ -130,6 +132,16 @@ public class GladOS {
 }
 
 	\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deklaration einer Methode mit Javadoc.}
+	\includegraphics[scale=0.5]{JavaDoc_example_1_1.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Verwendung der Methode mit Javadoc.}
+	\includegraphics[scale=0.5]{JavaDoc_example_2_1.png}
 \end{frame}
 
 \section{boolean}
@@ -160,12 +172,33 @@ public class GladOS {
 \end{frame}
 
 \begin{frame}
-	\frametitle{Vergleich von Gleitkommazahlen}
+	\frametitle{Exkurs: Gleitkommazahlen}
 	\begin{itemize}
-		\item{1.0 - (0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1) == 0.0 ?}
-		\item{0.02d == 0.02f ?}
+		\item{Gleitkommazahlen haben oft Rundungsfehler}
+		\item{Da Zahlen die im Dezimalsystem endlich sind, das nicht zwangsläufig auch im Binärsystem sind}
+		\item{z.B. 0,1 Dezimal == 0,00011001100110011... Binär}
+		\item{=> 1.0 - (0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1) != 0.0}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exkurs: Gleitkommazahlen}
+	\begin{itemize}
+		\item{Schon der Variablentyp kann einen Unterschied machen}
+		\item{0.02d (double) == 0.02f (float) ?}
 		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\ 
 		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
+		\item{Math.abs(zahl) berechnet den Betrag von zahl}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}
+		\item{Achtung beim Verrechnen von Zahlen die einige Größenordungen auseinander liegen}
+		\item{z.B. 100000000000000000.0 + 8 = 100000000000000000.0}
+		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
+		\item{Die Basis muss alle relevanten Teile der Zahl enthalten die dann vom Exponent verschoben werden können}
+		\item{=> Es können sehr große und sehr kleine Zahlen gespeichert werden, aber nicht beides}
 	\end{itemize}
 \end{frame}
 
@@ -247,6 +280,7 @@ public class GladOS {
 		
 		*, /, \% & & Multiplikation, Division, Modulo \\ \hline
 		+, - & & Addition und Subtraktion \\ \hline
+		==, != & & Vergleich \\ \hline
 		\& & & Und \\ \hline
 		| & & Oder \\ \hline
 		\&\& & & Kurzschlussoperator Und \\ \hline
@@ -273,7 +307,7 @@ public class GladOS {
 	\frametitle{Auszuwertende Variablen}
 	\begin{lstlisting}
 boolean hatRuecksitze; 
-// genau dann true, wenn das Auto Ruecksitze hat
+// dann true, wenn das Auto Ruecksitze hat
 int tueren; // Anzahl Tueren
 double beschleunigung; 
 // in Sekunden von 0 auf 100
