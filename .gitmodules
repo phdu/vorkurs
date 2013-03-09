@@ -10,3 +10,6 @@
 [submodule "Tag_3/FSIBeamerTheme"]
 	path = Tag_3/FSIBeamerTheme
 	url = git@git.hska.info:vorlagen/fsibeamertheme.git
+[submodule "Tag_4/BahnticketAutomat"]
+	path = Tag_4/BahnticketAutomat
+	url = git@github.com:fsi-hska/fsiBahnticketAutomat.git
