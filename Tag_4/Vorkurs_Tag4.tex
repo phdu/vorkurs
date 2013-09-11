@@ -7,7 +7,8 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{amssymb}
-\usepackage{transparent}
+\usepackage{csquotes}
+\usepackage{eurosym}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -561,16 +562,11 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 		\item{Parameter:}
 			\begin{itemize}
 				\item{oldTickets: String Array enthält die alten Tickets}
-				\item{newTickets: String}
+				\item{newTicket: String}
+				\item{bahncard: boolean}
 			\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\subsubsection{calculateNewSum}
-\begin{frame}
-	\frametitle{calculateNewSum}
-	\begin{itemize}
-		\item{}
+		\item{Beschreibung:}\\
+Soll den Parameter \textbf{\textit{oldTickets}} um den Parameter \textbf{\textit{newTicket}} erweitern und für den fall das der Parameter \textbf{\textit{bahncard}} {\color{blue}true} ist um \enquote{ (Bahncard)} erweitern und anschließend zurück geben.
 	\end{itemize}
 \end{frame}
 
@@ -578,7 +574,29 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \begin{frame}
 	\frametitle{getSum}
 	\begin{itemize}
-		\item{}
+		\item{Hat keine Parameter}
+		\item{Gibt den aktuellen Gesamtpreis als double in Euro zurück}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{calculateNewSum}
+\begin{frame}
+	\frametitle{calculateNewSum}
+	\begin{itemize}
+		\item{Parameter:}
+			\begin{itemize}
+				\item{distance: integer}
+				\item{bahncard: boolean}
+			\end{itemize}
+		\item{Beschreibung:}
+Berechnet den Gesamtpreis aller bisher sowei dem aktuell ausgewählten Ticket. \\
+Dabei gilt:\\
+			\begin{itemize}
+				\item{Bis 200km: 10 \euro + 0.20 \euro pro km}
+				\item{Ab 200km: 5 \euro + 0.15 \euro pro km}
+				\item{Mit einer Bahncard erhält man immer 25\% Rabatt}
+			\end{itemize}
+		\item{Hat keinen Rückgabewert}
 	\end{itemize}
 \end{frame}
 
@@ -586,15 +604,9 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \begin{frame}
 	\frametitle{resetSum}
 	\begin{itemize}
-		\item{}
-	\end{itemize}
-\end{frame}
-
-\subsubsection{beginPayment}
-\begin{frame}
-	\frametitle{beginPayment}
-	\begin{itemize}
-		\item{}
+		\item{Hat keine Parameter}
+		\item{Hat keine Rückgabewert}
+		\item{Setzt den Gesamtpreis auf 0 zurück}
 	\end{itemize}
 \end{frame}
 
@@ -602,7 +614,13 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \begin{frame}
 	\frametitle{insertMoney}
 	\begin{itemize}
-		\item{}
+		\item{Parameter:}
+			\begin{itemize}
+				\item{amount: integer}
+			\end{itemize}
+		\item{Beschreibung:}
+Wenn der Kunde einen Geldschein einwirft wird diese Methode aufgerufen. Der noch noch zu bezahlende Betrag muss dementsprechen angepasst werden
+		\item{Hat keinen Rückgabewert}
 	\end{itemize}
 \end{frame}
 
@@ -610,7 +628,8 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \begin{frame}
 	\frametitle{getAmountLeft}
 	\begin{itemize}
-		\item{}
+		\item{Hat keine Parameter}
+		\item{Als Rückgabewert soll hier der noch zu zahlende Betrag als double in Euro zurück gegben werden}
 	\end{itemize}
 \end{frame}
 
@@ -618,15 +637,9 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \begin{frame}
 	\frametitle{getChangeAmount}
 	\begin{itemize}
-		\item{}
-	\end{itemize}
-\end{frame}
-
-\subsubsection{addNewTicket}
-\begin{frame}
-	\frametitle{addNewTicket}
-	\begin{itemize}
-		\item{}
+		\item{Hat keine Parameter}
+		\item{Wird aufgerufen wenn der Kunde ausreichen Geld eingeworfen hat}
+		\item{Gibt den Betrag des Wechselsgeld zurück. Dieser muss Positiv sein}
 	\end{itemize}
 \end{frame}
 
@@ -634,7 +647,26 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \begin{frame}
 	\frametitle{getChangeCoins}
 	\begin{itemize}
-		\item{}
+		\item{Hat keine Parameter}
+		\item{Beschreibung:}
+Berechnet wieviel Münzen von jeder Sorte der Kunde zurück bekommt.
+		\item{Gibt ein Array zurück in dem die Anzahl der entsprechenden Münzen enthält}
+			\begin{itemize}
+				\item{Rückgabe[0]: enthält die Anzahl der 2 \euro-Münzen}
+				\item{Rückgabe[1]: enthält die Anzahl der 1 \euro-Münzen}
+				\item{...}
+				\item{Rückgabe[7]: enthält die anzahl der 1 ct-Münzen}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{beginPayment}
+\begin{frame}
+	\frametitle{beginPayment (OPTIONAL)}
+	\begin{itemize}
+		\item{Diese Methode ist Optional}
+		\item{Wird nicht immer benötigt}
+		\item{Kann für spezielle aktionen zu begin des Bezahlvorgangs verwendet werden}
 	\end{itemize}
 \end{frame}
 
