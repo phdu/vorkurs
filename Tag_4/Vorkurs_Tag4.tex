@@ -7,10 +7,37 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{amssymb}
+\usepackage{transparent}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\lstset{
+  basicstyle=\footnotesize,			% the size of the fonts that are used for the code
+  breakatwhitespace=false,			% sets if automatic breaks should only happen at whitespace
+  breaklines=true,					% sets automatic line breaking
+  captionpos=b,					% sets the caption-position to bottom
+  commentstyle=\color{mygreen},		% comment style
+  deletekeywords={...},				% if you want to delete keywords from the given language
+  extendedchars=true,				% lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=none,						% adds a frame around the code
+  keepspaces=true,					% keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},			% keyword style
+  language=Java,					% the language of the code
+  morekeywords={*,...},				% if you want to add more keywords to the set
+  numbers=none,					% where to put the line-numbers; possible values are (none, left, right)
+  rulecolor=\color{mygreen},			% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,					% show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,			% underline spaces within strings only
+  showtabs=false,					% show tabs within strings adding particular underscores
+  stepnumber=1,					% the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{red},				% string literal style
+  tabsize=4,						% sets default tabsize to 2 spaces
+  title=\lstname					% show the filename of files included with \lstinputlisting; also try caption instead of title
+}
 
 \newcommand{\ThemeFolder}{FSIBeamerTheme}
 \RequirePackage{\ThemeFolder/beamerthemeFSI}
-
+\lstset{language=Java}
 
 \DeclareGraphicsExtensions{.pdf,.png}
 
@@ -26,8 +53,8 @@
       \huge{Einführung in Java}\\
       \huge{Tag 4}
       \vfill
-      \large{Daniel Hoff}\\
-      \tiny{SS 2013}
+      \large{Tristan Wagner}\\
+      \tiny{WS 2013/2014}
   \end{center}
 }
 
@@ -42,18 +69,18 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Überischt}
   \tableofcontents
 \end{frame}
 
 \section{Über mich}
 \begin{frame}
 	\frametitle{Über mich}
-	\textbf{Daniel Hoff}
+	\textbf{Tristan Wagner}
 	\begin{itemize}
-		\item{6. Semester Informatik}
+		\item{7. Semester Informatik}
 		\item{aktiver Fachschafter}
-		\item{gewählter studentischer Vertreter im Fakultätsrat}
-		\item{Vorsitzender des Fachschaftsvereins}
+		\item{Kassenwart des Fachschaftsvereins}
 	\end{itemize}
 \end{frame}
 
@@ -352,7 +379,7 @@ public static !\color{blue}Rückgabetyp! !\color{green}Name! (!\color{red}Parame
 }
 	\end{lstlisting}
 	\begin{itemize}
-		\item{Wenn der {\color{blue}Rückgabetyp} \textbf{void} ist, darf kein {\color{blue}return} vorkommen}
+		\item{Wenn der {\color{blue}Rückgabetyp} \textbf{void} ist, darf das {\color{blue}return} keinen Rückgabewert haben und ist optional}
 	\end{itemize}
 \end{frame}
 
@@ -438,6 +465,50 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 	\end{itemize}
 \end{frame}
 
+\section{Java-Doc}
+\begin{frame}
+	\frametitle{JavaDoc}
+	JavaDoc bietet einfache Kommentar für Klassen und Methoden (Ausgabe erfolgt in html)
+	\begin{itemize}
+		\item{Genereller Aufbau}
+			\begin{itemize}
+				\item{Mehrzeiliges Kommentar (Mit zwei sternen) /**...*/}
+			\end{itemize}
+		\item{@Author}
+			\begin{itemize}
+				\item{Gibt den Author einer Datei oder Klasse an}
+			\end{itemize}
+		\item{@Param}
+			\begin{itemize}
+				\item{Parameter die einer Methode übergeben werden}
+			\end{itemize}
+		\item{@Return}
+			\begin{itemize}
+				\item{Definiert den Rückgabewert der Funktion}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\section{Exceptions}
+\begin{frame}
+	\frametitle{Exceptions}
+	\textbf{Häufige Exceptions}
+	\begin{itemize}
+		\item{NullPointerException}
+			\begin{itemize}
+				\item{Zugriff auf einen Variable in der \color{blue}null \color{black} steht}
+			\end{itemize}
+		\item{ArrayIndexOutOfBoundsException}
+			\begin{itemize}
+				\item{Zugriff auf ein Arrayelement außerhalb der Arraygrenzen}
+			\end{itemize}
+		\item{ArithmeticException}
+			\begin{itemize}
+				\item{Division durch 0}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
 \section{Aufgabe}
 \begin{frame}
 	\frametitle{Vorstellung der Aufgabe}
@@ -467,6 +538,7 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 	\begin{itemize}
 		\item{Original von Samuel Zeitvogel}
 		\item{Überarbeitet 2012 von Daniel Hoff}
+		\item{Überarbeitet 2013 von Tristan Wagner}
 	\end{itemize}
 \end{frame}
 
