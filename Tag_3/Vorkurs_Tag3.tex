@@ -17,9 +17,14 @@
 
 \setbeamertemplate{title page}{
   \begin{center}
-	{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+    \color{FSIblue}
+      \resizebox{\textwidth}{!}{Programmiervorkurs}\\
+      \vspace{0.3\baselineskip}
+      \huge{Einführung in Java - Tag 3}
+      \vfill
+      \large{Felix Bürkle}\\
+      \tiny{WS 2013}
   \end{center}
-  \tableofcontents
 }
 
 \begin{document}
@@ -250,37 +255,6 @@
   \end{lstlisting}
 \end{frame}
 
-\subsection{Break und Continue}
-\begin{frame}
-  \frametitle{$break$ und $continue$}
-  \begin{itemize}
-	\item{$break$ und $continue$ sind alternative Möglichkeiten, eine Schleife zu verlassen.}
-	\item{$break$ verlässt die innerste Schleife sofort.}
-	\item{$continue$ beendet den aktuellen Schleifendurchlauf, aber nicht die ganze Schleife
-	  (es wird mit der Überprüfung der Bedingung weitergemacht).}
-  \end{itemize}
-\end{frame}
-\begin{frame}[containsverbatim]
-  \frametitle{$break$ und $continue$}
-  Beispiel:
-  \begin{lstlisting}
-  int[] werte = new int[]
-	  { 10, 8, 14, 29, 38, 7, 21 };
-
-  for (int i = 0; i < werte.length; i++) {
-	if (werte[i] >= 20) {
-	  System.out.println(werte[i]);
-	  break;
-	}
-  }
-
-  for (int i = 0; i < werte.length; i++) {
-	if (werte[i] >= 20)
-	  continue;
-	System.out.println(werte[i]);
-  }
-  \end{lstlisting}
-\end{frame}
 
 \section{Debugging}
 \begin{frame}
