@@ -31,8 +31,7 @@
       \vspace{0.3\baselineskip}
       \huge{Einführung in Java}
       \vfill
-      \large{Christian Zimmer}\\
-      \tiny{SS 2013}
+      \tiny{WS 2013/14}
   \end{center}
 }
 
@@ -326,7 +325,7 @@ double division = 3.5 / (result - 1);
 \begin{frame}[fragile]
   \frametitle{In- bzw. Dekrement}
   \begin{itemize}
-    \item Erhöht bzw. erniedrigt den Wert einer Variablen
+    \item Erhöht bzw. erniedrigt den Wert einer Variablen um 1.
     \begin{lstlisting}
 int x = 42;
 x++; 
@@ -445,6 +444,26 @@ double z = x / y;
 double z = (double) x / y;
     \end{lstlisting}    
   \end{itemize}
+\end{frame}
+
+\section{Kommentare}
+\begin{frame}[fragile]
+	\frametitle{Kommentare}
+	\begin{itemize}
+	\item Wird verwendet um Code von der Verwendung auszunehmen oder Kommentare zu hinterlassen. Wenn wir euch auffordern etwas auszukommentieren reden wir hiervon.
+	\item Mehrzeilige Kommentare:
+	\begin{lstlisting}
+	/**
+	* Dashier ist alles Kommentar.	
+	* int Zahl;
+	* char Buchstabe;	
+	*/
+	\end{lstlisting}
+	\item Einzeilige Kommentare:
+	\begin{lstlisting}
+	int Zahl; //Hier beginnt der Kommentar.
+	\end{lstlisting}
+	\end{itemize}
 \end{frame}
 
 \section{Demonstration NetBeans (Debugging)}
