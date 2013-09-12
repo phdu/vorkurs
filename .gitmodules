@@ -1,15 +1,15 @@
 [submodule "Tag_1/FSIBeamerTheme"]
 	path = Tag_1/FSIBeamerTheme
-	url = git@github.com:fsi-hska/fsibeamertheme.git
+	url = https://github.com/fsi-hska/fsibeamertheme.git
 [submodule "Tag_2/FSIBeamerTheme"]
 	path = Tag_2/FSIBeamerTheme
-	url = git@github.com:fsi-hska/fsibeamertheme.git
+	url = https://github.com/fsi-hska/fsibeamertheme.git
 [submodule "Tag_4/FSIBeamerTheme"]
 	path = Tag_4/FSIBeamerTheme
-	url = git@github.com:fsi-hska/fsibeamertheme.git
+	url = https://github.com/fsi-hska/fsibeamertheme.git
 [submodule "Tag_3/FSIBeamerTheme"]
 	path = Tag_3/FSIBeamerTheme
-	url = git@github.com:fsi-hska/fsibeamertheme.git
+	url = https://github.com/fsi-hska/fsibeamertheme.git
 [submodule "Tag_4/BahnticketAutomat"]
 	path = Tag_4/BahnticketAutomat
 	url = git@github.com:fsi-hska/fsiBahnticketAutomat.git
