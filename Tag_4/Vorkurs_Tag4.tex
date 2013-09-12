@@ -68,6 +68,17 @@
 	\end{itemize}
 \end{frame}
 
+\section{Ablauf}
+\begin{frame}
+  \frametitle{Ablauf}
+  \begin{itemize}
+    \item{09:30 Vorstellung der Lösungen des Vortages}
+    \item{ab 10:00 Vorlesung}
+    \item{90 min Mittagspause}
+    \item{gegen 12:30 / 13:00 Übungen}
+  \end{itemize}
+\end{frame}
+
 \section{Methoden}
 \begin{frame}[containsverbatim]
 	\frametitle{Beispiel ohne Methoden}
@@ -354,7 +365,7 @@ public static !\color{blue}int! zaehleVonBis(int v, int b) {
 \begin{frame}[containsverbatim]
 	\frametitle{Generell}
 	\begin{lstlisting}[escapechar=!]
-public static !\color{blue}Rückgabetyp! !\color{green}Name! (!\color{red}Parameter!) {
+public static !\color{orange}Rückgabetyp! !\color{black}Name! (!\color{red}Parameter!) {
 	// Methodenrumpf
 	!\color{blue}return! ... ; 
 }
@@ -424,7 +435,7 @@ public class Main {
 		for (int i = v; i <= b; i++) {
 			System.out.println(i);
 		}
-		!\color{red}wurdeAusgegeben! = b >= v;
+		!\color{blue}this.!!\color{red}wurdeAusgegeben! = b >= v;
 		return b - v + 1;
 	}
 }
@@ -435,7 +446,7 @@ public class Main {
 	\frametitle{Deklaration von Klassenvariablen}
 	\begin{itemize}
 		\item{Deklaration direkt nach Klassendeklaration}
-		\item{\textbf{public static} {\color{blue}Datentyp} {\color{red}Bezeichner};}
+		\item{\textbf{public static} {\color{blue}Datentyp} {\color{red}Variablenname};}
 		\item{sichtbar in der ganzen Klasse}
 		\item{Ohne manuelle Zuweisung wird der Defaultwert zugewiesen}
 		\item{Beispiel:
@@ -473,6 +484,8 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 \section{Exceptions}
 \begin{frame}
 	\frametitle{Exceptions}
+Exceptions sind von der JVM ausgelöste fehler während des Programmablaufs.\\
+\vfill
 	\textbf{Häufige Exceptions}
 	\begin{itemize}
 		\item{NullPointerException}
