@@ -205,9 +205,10 @@
       \item Substantive
       \item Nur lateinische Zeichen, Zahlen und \_
       \begin{itemize}
-        \item KEIN ä, ö, ü, ß, ...
+        \item KEIN ä, ö, ü, ß, ...    
       \end{itemize}
-      \item camelCase-Schreibweise
+	  \item Verwendung EINER Sprache, kein Gemisch      
+      \item lowerCamelCase-Schreibweise \\ \tiny camelCase bedeutet, dass der Bezeichner ohne Trennzeichen wie Leerzeile und Unterstrich angegeben werden und die folgenden Worte groß geschrieben werden. Die lower Variante beginnt das erste Wort klein geschrieben.
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -223,7 +224,7 @@
 \begin{frame}[fragile]
   \frametitle{Deklaration}
   \begin{itemize}
-  \item Bekanntmachen der Variablen:
+  \item Deklarieren der Variablen:
     \begin{lstlisting}[morekeywords={type}]
 type name;
     \end{lstlisting}
@@ -239,7 +240,8 @@ boolean isStudent;
 \begin{frame}[fragile]
   \frametitle{Wertzuweisung}
   \begin{itemize}
-  \item Der Variablen einen Wert zuweisen:
+  \item Der Variablen einen Wert zuweisen\\
+  Beim ersten Mal spricht man von initialisieren
     \begin{lstlisting}[morekeywords={type}]
 name = wert;
     \end{lstlisting}
@@ -337,8 +339,8 @@ double division = 3.5 / (result - 1);
     \item Erhöht bzw. erniedrigt den Wert einer Variablen um 1.
     \begin{lstlisting}
 int x = 42;
-x++; 
-x--;
+x++; // Identisch: x=x+1
+x--; // Identisch: x=x-1
     \end{lstlisting}
 \item[] Welchen Wert beinhaltet x? \uncover<2->{ x = 42}
   \end{itemize}
