@@ -13,6 +13,3 @@
 [submodule "Tag_4/BahnticketAutomat"]
 	path = Tag_4/BahnticketAutomat
 	url = git@github.com:fsi-hska/fsiBahnticketAutomat.git
-[submodule "Organisatorisches"]
-	path = Organisatorisches
-	url = git@github.com:fsi-hska/vorkurs-orga.git
