@@ -1,5 +1,5 @@
 doc = Vorkurs_Tag2
-doc2 = aufgaben_tag2
+doc2 = Vorkurs_Tag2_Aufgaben
 #doc3 = Vorkurs_Tag2_Loesungen
 
 all : $(doc).pdf $(doc2).pdf #$(doc3).pdf
@@ -28,4 +28,3 @@ clean :
 	@-rm $(doc).{aux,log,nav,out,pdf,snm,toc,vrb} 2>/dev/null || true
 	@-rm $(doc2).{aux,log,pdf,} 2>/dev/null || true
 	@-rm $(doc3).{aux,log,pdf,} 2>/dev/null || true
-

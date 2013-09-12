@@ -16,11 +16,11 @@ $(doc).pdf : $(doc).tex
 	pdflatex $(doc)
 
 $(doc2).pdf : $(doc2).tex
-	@-rm $(doc2).{aux,log,pdf} 2>/dev/null || true
+	@-rm $(doc2).{aux,log} 2>/dev/null || true
 	pdflatex $(doc2)
 
 $(doc3).pdf : $(doc3).tex
-	@-rm $(doc3).{aux,log,pdf} 2>/dev/null || true
+	@-rm $(doc3).{aux,log} 2>/dev/null || true
 	pdflatex $(doc3)
 
 .PHONY : clean
@@ -28,4 +28,3 @@ clean :
 	@-rm $(doc).{aux,log,nav,out,pdf,snm,toc,vrb} 2>/dev/null || true
 	@-rm $(doc2).{aux,log,pdf,} 2>/dev/null || true
 	@-rm $(doc3).{aux,log,pdf,} 2>/dev/null || true
-
