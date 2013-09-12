@@ -11,7 +11,7 @@ aufgaben : $(doc2).pdf
 loesungen : $(doc3).pdf
 
 $(doc).pdf : $(doc).tex
-	@-rm $(doc).{aux,log,nav,out,pdf,snm,toc} 2>/dev/null || true
+	@-rm $(doc).{aux,log,nav,out,pdf,snm,toc,vrb} 2>/dev/null || true
 	pdflatex $(doc)
 	pdflatex $(doc)
 
@@ -25,7 +25,7 @@ $(doc3).pdf : $(doc3).tex
 
 .PHONY : clean
 clean :
-	@-rm $(doc).{aux,log,nav,out,pdf,snm,toc} 2>/dev/null || true
+	@-rm $(doc).{aux,log,nav,out,pdf,snm,toc,vrb} 2>/dev/null || true
 	@-rm $(doc2).{aux,log,pdf,} 2>/dev/null || true
 	@-rm $(doc3).{aux,log,pdf,} 2>/dev/null || true
 
