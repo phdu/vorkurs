@@ -12,4 +12,4 @@
 	url = https://github.com/fsi-hska/fsibeamertheme.git
 [submodule "Tag_4/BahnticketAutomat"]
 	path = Tag_4/BahnticketAutomat
-	url = git@github.com:fsi-hska/fsiBahnticketAutomat.git
+	url = https://github.com/fsi-hska/fsiBahnticketAutomat.git
