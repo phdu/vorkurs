@@ -17,12 +17,25 @@
 
 \title{Programmiervorkurs für Erstsemester}
 
+%
+%\setbeamertemplate{title page}{
+%  \begin{center}
+%	{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+%  \end{center}
+% 
+
 \setbeamertemplate{title page}{
   \begin{center}
-	{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+    \color{FSIblue}
+      \resizebox{\textwidth}{!}{Programmiervorkurs}\\
+      \vspace{0.3\baselineskip}
+      \huge{Einführung in Java}\\
+      \huge{Tag 2}
+      \vfill
+      \large{Sebastian Wörner (Struppi)}\\
+      \tiny{WS 2013/2014}
   \end{center}
-  
-}
+} 
 
 \begin{document}
 \shorthandoff{"}
@@ -34,7 +47,19 @@
   \titlepage
 \end{frame}
 
+\section{Ablauf}
 \begin{frame}
+  \frametitle{Ablauf}
+  \begin{itemize}
+    \item{09:30 Vorstellung der Lösungen des Vortages}
+    \item{ab 10:00 Vorlesung}
+    \item{90 min Mittagspause}
+    \item{gegen 12:30 / 13:00 Übungen}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+<<<<<<< HEAD
 	\frametitle{Inhaltsübersicht Tag 2}
 	\begin{itemize}
 		\item {Boolesche Ausdrücke}
@@ -44,6 +69,31 @@
 		\item {Weiterführung Debugging}
 	\end{itemize}
 \end{frame}
+=======
+  \frametitle{Inhaltsübersicht Vorkurs}
+  \begin{itemize}
+  {\color{gray}
+    \item {Tag 1: Variablen, Datentypen, Konvertierungen, Arithmetik, Netbeans, Einführung Debugging}
+    {\color{black}
+    \item {Tag 2: Boolesche Ausdrücke, Kommentare, If-Abfragen, Switch-Case, Weiterführung Debugging}
+    }
+    \item {Tag 3: Arrays, (Do-)While-Schleife, For-Schleifen, Weiterführung Debugging}
+    \item {Tag 4: (statische) Methoden, Klassenvariablen, JavaDoc, Exceptions}
+  }
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{Inhaltsübersicht Tag 2}
+%	\begin{itemize}
+%		\item {Boolesche Ausdrücke}
+%		\item {Kommentare}
+%		\item {If-Abfragen}
+%		\item {Switch-Case}
+%		\item {Weiterführung Debugging}
+%	\end{itemize}
+%\end{frame}
+>>>>>>> tag2 changes
 
 \section{Kommentare}
 \begin{frame}
@@ -80,14 +130,20 @@ Zeilenkommentar:
 \begin{frame}
 	\frametitle{Verwendung von Kommentaren}
 	\begin{itemize}
+<<<<<<< HEAD
 		\item{Kommentare retten Leben!}
 		\item{Nachfolgenden Entwicklern Hinweise geben, wie der Quelltext zu verstehen ist}
+=======
+		\item{Kommentare retten Leben! Besonders das eigene!}
+		\item{Geben nachfolgenden Entwicklern Hinweise geben, wie der Quelltext zu verstehen ist}
+>>>>>>> tag2 changes
 		\item{Sehr praktisch als Gedächtnisstütze: TODOs setzen}
 		\item{Zum Testen können Teile des Quellcodes zeitweise auskommentiert werden}
 	\end{itemize}
 \end{frame}
 
 \subsection{Beispiel}
+%TODO
 \begin{frame}[containsverbatim]
 \frametitle{Beispiel}
 	\begin{lstlisting}
@@ -111,7 +167,12 @@ public class GladOS {
 \end{frame}
 
 \begin{frame}
+<<<<<<< HEAD
 	\frametitle{Deklaration einer Methode mit JavaDoc.}
+=======
+	\frametitle{Deklaration einer Methode mit Javadoc.}
+	%TODO nicht als bild
+>>>>>>> tag2 changes
 	\includegraphics[scale=0.5]{JavaDoc_example_1_1.png}
 \end{frame}
 
@@ -137,14 +198,14 @@ public class GladOS {
 \subsection{Vergleiche}
 \begin{frame}
 	\frametitle{Boolsche Operatoren - Vergleiche}
-	\begin{itemize}
-		\item{>  - größer}
-		\item{<  - kleiner}
-		\item{>= - größer gleich}
-		\item{<= - kleiner gleich}
-		\item{== - gleich}
-		\item{!= - ungleich}
-	\end{itemize}
+	\begin{tabular}{c c c}
+		\textbf{>}  & - & größer \\&&\\
+		\textbf{<} & - & kleiner \\&&\\
+		\textbf{>=} & - & größer gleich \\&&\\
+		\textbf{<=}  & - &  kleiner gleich \\&&\\
+		\textbf{==} & - & gleich \\&&\\
+		\textbf{!=} & - & ungleich \\
+	\end{tabular}
 \end{frame}
 
 \subsection{Verknüpfungen}
@@ -158,7 +219,6 @@ public class GladOS {
 		\textbf{==} & - & gleich \\&&\\
 		\textbf{!=} & - & ungleich \\
 	\end{tabular}
-	\
 \end{frame}
 
 \begin{frame}
@@ -238,6 +298,8 @@ public class GladOS {
 \end{frame}
 
 \subsection{boolscher Ausdruck} 
+%TODO verständlich machen
+%TODO kleines beispiel eines boolischen ausdruckes für nächste aufgabe
 \begin{frame}
 	\frametitle{Definition: boolscher Ausdruck}
 	\begin{itemize}
@@ -266,10 +328,25 @@ boolean hatRuecksitze;
 int tueren; // Anzahl Tueren
 double beschleunigung; 
 // in Sekunden von 0 auf 100
-double hoechstgeschwindigkeit; // in km/h
-double leistung; // in kW (nicht in PS!)
-1 PS ~ 0,735 kW
+int hoechstgeschwindigkeit; // in km/h
+int leistung; // in PS
 	\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Lösung}
+
+tueren < 3 \& !hatRuecksitze \& \\
+((hoechstgeschwindigkeit > 200 \& beschleunigung < 8) | \\
+(hoechstgeschwindigkeit > 280 \& leistung > 250)) 
+\vfill
+ODER
+\vfill
+tueren <= 2 \& hatRuecksitze == false \& \\
+((hoechstgeschwindigkeit > 200 \& beschleunigung < 8) | \\
+(hoechstgeschwindigkeit > 280 \& leistung > 250))
+
 \end{frame}
 
 \section{Gleitkommazahlen}
@@ -277,34 +354,33 @@ double leistung; // in kW (nicht in PS!)
 	\frametitle{Exkurs: Gleitkommazahlen}
 	\begin{itemize}
 		\item{Gleitkommazahlen in Java sind anfällig für Rundungsfehler}
-		\item{Zahlen die im Dezimalsystem endlich sind, sind das nicht zwangsläufig auch im Binärsystem}
-		\item{z.B. 0,1 Dezimal == 0,00011001100110011... Binär}
-		\item{=> 1.0 - (0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1) != 0.0}
-	\end{itemize}
-\end{frame}
-
-\subsection{Vergleiche}
-\begin{frame}
-	\frametitle{Exkurs: Gleitkommazahlen}
-	\begin{itemize}
-		\item{Schon der Variablentyp kann einen Unterschied machen}
-		\item{0.02d (double) == 0.02f (float) ?}
-		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\ 
-		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
-		\item{Math.abs(zahl) berechnet den Betrag von zahl}
-	\end{itemize}
-\end{frame}
-
-\subsection{Größenordungsprobleme}
-\begin{frame}
-	\begin{itemize}
-		\item{Achtung beim Verrechnen von Zahlen die einige Größenordungen auseinander liegen}
-		\item{z.B. 100000000000000000.0 + 8 = 100000000000000000.0}
+		\item{niemals double mit float vergleichen!}
 		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
-		\item{Die Basis muss alle relevanten Teile der Zahl enthalten die dann vom Exponent verschoben werden können}
-		\item{=> Es können sehr große und sehr kleine Zahlen gespeichert werden, aber nicht beides}
 	\end{itemize}
 \end{frame}
+
+%\subsection{Vergleiche}
+%\begin{frame}
+%	\frametitle{Exkurs: Gleitkommazahlen}
+%	\begin{itemize}
+%		\item{Schon der Variablentyp kann einen Unterschied machen}
+%		\item{0.02d (double) == 0.02f (float) ?}
+%		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\ 
+%		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
+%		\item{Math.abs(zahl) berechnet den Betrag von zahl}
+%	\end{itemize}
+%\end{frame}
+
+%\subsection{Größenordungsprobleme}
+%\begin{frame}
+%	\begin{itemize}
+%		\item{Achtung beim Verrechnen von Zahlen die einige Größenordungen auseinander liegen}
+%		\item{z.B. 100000000000000000.0 + 8 = 100000000000000000.0}
+%		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
+%		\item{Die Basis muss alle relevanten Teile der Zahl enthalten die dann vom Exponent verschoben werden können}
+%		\item{=> Es können sehr große und sehr kleine Zahlen gespeichert werden, aber nicht beides}
+%	\end{itemize}
+%\end{frame}
 
 \section{if}
 \subsection{Beispiel}
@@ -325,6 +401,7 @@ if (Bedingung) {
 
 \begin{frame}[containsverbatim]
 	\frametitle{}
+	%TODO FUKKING BEISPIEL ÄNDERN !!!
 	\begin{lstlisting}
 String answer = "studying";
 if (answer == "Cake") {
@@ -352,10 +429,11 @@ if (answer == "Cake") {
 
 \begin{frame}[containsverbatim]
 	\frametitle{noch ein etwas praktischeres Beispiel:}
+	%TODO evtl auch anderes bsp. da int und geteilt nicht gut
 	\begin{lstlisting}
-double a, b;
+int a, b;
 ...
-if (a != 0.0) {
+if (a != 0) {
 	System.out.print("b/a: ");
 	System.out.println(b/a);
 } else {
@@ -368,6 +446,7 @@ if (a != 0.0) {
 \subsection{false == true}
 \begin{frame}[containsverbatim]
 	\frametitle{Abkürzungen bei boolschen Variablen}
+	%TODO
 	\begin{lstlisting}
 boolean istStudent = true;
 if (!istStudent) {
@@ -383,6 +462,7 @@ if (!(istStudent == true)) { ... }
 \subsection{Verschachtelung}
 \begin{frame}[containsverbatim]
 	\frametitle{Verschachtelte if-Abfragen}
+	%TODO verständliches beispiel
 	\begin{lstlisting}
 long losnummer;
 ...
@@ -484,8 +564,20 @@ if (a == 'r') {
 	\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
 	\item{morgen früh ab 9:30 Uhr findet die Besprechung der Aufgaben von heute Nachmittag statt}
 	\item{danach (ca. ab 10:00 Uhr) beginnt die nächste Vorlesung. Themen: Arrays und Schleifen}
-	\item{außerdem bin ich der Meinung, dass englische Inhalte nicht übersetzt werden sollten.}
   \end{itemize}
 \end{frame}
+
+\section{Quellen \& Lizenz}
+\begin{frame}
+	\frametitle{Quellen und Lizenz}
+	\begin{center}
+		\includegraphics[width=250px]{gfx/fsi}
+	\end{center}
+	\begin{itemize}
+		\item{Original von Moritz Grimm}
+		\item{Überarbeitet 2013 von Sebastian Wörner}
+	\end{itemize}
+\end{frame}
+
 
 \end{document}
