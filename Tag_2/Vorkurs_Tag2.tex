@@ -39,10 +39,9 @@
 
 \begin{document}
 \shorthandoff{"}
-\lstset{tabsize=2}
-\lstset{basicstyle=\small}
-\lstset{language=java}
-\lstset{showstringspaces=false}
+
+\input{../lstsettings.tex}
+
 \begin{frame}
   \titlepage
 \end{frame}
@@ -102,6 +101,7 @@ JavaDoc:
 * automatisch zu html-Dokumentation
 * verarbeitet werden kann
 */
+
 Blockkommentar:
 /*
 * Mehrzeilige Kommentare sind ideal, wenn
@@ -109,6 +109,7 @@ Blockkommentar:
 * Es gilt die Devise: so knapp wie
 * moeglich, so ausfuehrlich wie noetig.
 */
+
 Zeilenkommentar:
 // endet mit Zeilenumbruch
 	\end{lstlisting}
@@ -393,8 +394,7 @@ if (answer == "Cake") {
 } else if (answer == "42"){
 	System.out.println("You got it!");
 } else if (answer == "studying"){
-	System.out.println("Not to everything,
-                       but very commendable");
+	System.out.println("Not to everything, but very commendable");
 } else {
 	System.out.println("think harder!")
 }
@@ -436,7 +436,7 @@ boolean istStudent = true;
 if (!istStudent) {
 	// gewaehre keinen Studentenrabatt
 }
-entspricht der Abfrage folgender Bedingungen:
+//entspricht der Abfrage folgender Bedingungen:
 if (istStudent == false) { ... }
 if (!(istStudent == true)) { ... }
 
