@@ -313,18 +313,23 @@ int leistung; // in PS
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[containsverbatim]
 	\frametitle{Lösung}
-
-tueren < 3 \& !hatRuecksitze \& \\
-((hoechstgeschwindigkeit > 200 \& beschleunigung < 8) | \\
-(hoechstgeschwindigkeit > 280 \& leistung > 250)) 
+\begin{lstlisting}
+tueren < 3
+	&& !hatRuecksitze
+	&& ((hoechstgeschwindigkeit > 200 && beschleunigung < 8)
+		| (hoechstgeschwindigkeit > 280 && leistung > 250))
+\end{lstlisting}
 \vfill
 ODER
 \vfill
-tueren <= 2 \& hatRuecksitze == false \& \\
-((hoechstgeschwindigkeit > 200 \& beschleunigung < 8) | \\
-(hoechstgeschwindigkeit > 280 \& leistung > 250))
+\begin{lstlisting}
+tueren <= 2
+	&& hatRuecksitze == false
+	&& ((hoechstgeschwindigkeit > 200 && beschleunigung < 8)
+		||(hoechstgeschwindigkeit > 280 \& leistung > 250))
+\end{lstlisting}
 
 \end{frame}
 
