@@ -5,11 +5,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{listings}
+\usepackage{xcolor}
 
 \begin{document}
-\lstset{tabsize=4}
-\lstset{basicstyle=\small}
-\lstset{language=java}
+\input{../lstsettings.tex}
 
 {\huge Programmiervorkurs Tag 3 - Aufgaben}
 
@@ -26,9 +25,9 @@
 	Im Array $notenspiegel$ sind die Noten einer Klausur gespeichert. Das erste Feld (Index $0$)
 	enthält die Anzahl der Studenten, die eine 1 geschrieben haben, das zweite Feld enthält
 	die Anzahl der Studenten, die eine 2 geschrieben haben usw.
-	\begin{lstlisting}
-	int[] notenspiegel = new int[] { 2, 5, 12, 8, 5 };
-	\end{lstlisting}
+\begin{lstlisting}
+int[] notenspiegel = new int[] { 2, 5, 12, 8, 5 };
+\end{lstlisting}
 	Hier haben also 2 Studenten eine 1, 5 Studenten haben eine 2 und 5 Studenten haben nicht bestanden (eine 5).
 	Berechne den Notendurchschnitt. Verwende dazu eine Schleife, in der du auf die Arrayfelder zugreifst.
 
