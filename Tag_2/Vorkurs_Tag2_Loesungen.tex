@@ -1,0 +1,134 @@
+\documentclass[final,a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{eurosym}
+\usepackage{enumerate}
+
+\begin{document}
+\input{../lstsettings.tex}
+
+{\huge Programmiervorkurs Tag 2 - Lösungen}
+
+\bigskip
+
+\section*{Aufgabe T2.1}
+\begin{enumerate}[(a)]
+	\item false
+	\item true
+	\item false
+	\item false
+	\item true
+	\item true
+	\item false
+	\item true
+	\item false
+	\item false
+	\item true
+	\item true
+	\item true
+\end{enumerate}
+
+\section*{Aufgabe T2.2}
+\begin{enumerate}[(a)]
+	\item stimmt
+	\item stimmt
+	\item stimmt nicht
+	\item stimmt
+	\item stimmt nicht
+	\item stimmt nicht
+	\item stimmt
+\end{enumerate}
+
+
+\section*{Aufgabe T2.3}
+\begin{lstlisting}
+(x > 25) && x % 2 != 0
+\end{lstlisting}
+
+\section*{Aufgabe T2.4}
+\begin{lstlisting}
+(jahr % 4 == 0 && jahr % 100 != 0) || jahr % 400 == 0
+\end{lstlisting}
+
+\section*{Aufgabe T2.5}
+\begin{lstlisting}
+public static void main(String[] args){
+	boolean male = true;
+	String name = "Peter";
+	
+	if (male) {
+		System.out.println("Guten Tag, Herr " + name);
+	else {
+		System.out.println("Guten Tag, Frau " + name);
+	}
+}
+\end{lstlisting}
+
+\section*{Aufgabe T2.6}
+\begin{lstlisting}
+public static void main(String[] args){
+	double p = 0.0;
+	double q = 0.0;
+	double diskriminante = Math.pow(p * 0.5, 2.0) - q;
+	double x1;
+	double x2;
+
+	if (diskriminante < 0) {
+		System.out.println("Für die gegebenen p und q existiert keine Loesung im Bereich der reellen Zahlen!");
+	} else {
+		x1 = p * -0.5 + Math.sqrt(diskriminante);
+		x2 = p * -0.5 - Math.sqrt(diskriminante);
+		System.out.println("x1: " + x1);
+		System.out.println("x2: " + x2);
+	}
+}
+\end{lstlisting}
+
+\section*{Aufgabe T2.7}
+\begin{lstlisting}
+public static void main(String[] args){
+
+	int winkel = 0;
+
+	if (winkel >= 0 && winkel <= 45 || winkel > 315 && winkel < 360) {
+		System.out.println("Norden");
+	} else if (winkel > 45 && winkel <= 135) {
+		System.out.println
+	} else if (winkel > 135 && winkel <= 225) {
+		System.out.println("Sueden");
+	} else if (winkel > 225 && winkel <= 315) {
+		System.out.println("Westen");
+	} else {
+		System.out.println("Ungueltiger Winkel! Bitte einen Wert								 zwischen 0 und 359 wählen!");
+	}
+}
+\end{lstlisting}
+
+\section*{Aufgabe T2.8}
+\begin{lstlisting}
+public static void main(String[] args){
+	int winkel = 0;
+	int normWinkel = ((winkel + 45) % 360) / 90;
+	switch(normWinkel){
+		case 0:
+			System.out.println("Norden");
+			break;
+		case 1:
+			System.out.println("Osten");
+			break;
+		case 2:
+			System.out.println("Sueden");
+			break;
+		case 3:
+			System.out.println("Westen");
+			break;
+	}
+}
+\end{lstlisting}
+
+\end{document}
