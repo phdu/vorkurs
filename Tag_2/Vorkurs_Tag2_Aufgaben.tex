@@ -15,8 +15,7 @@
 
 \bigskip
 
-\begin{enumerate}
-\item{
+\section*{Aufgabe T2.1}
 	Welchen booleschen Wert ergeben die folgenden Ausdrücke:
 	\begin{itemize}
 		\item \lstinline{true & false}
@@ -33,9 +32,9 @@
 		\item \lstinline{1 == 2 && (3 != 4) || (1 < 2)}
 		\item \lstinline{(7 < 5) ^ (2 == (9 / 4))}
 	\end{itemize}
-}
 
-\item{
+
+\section*{Aufgabe T2.2}
 Welche der folgenden Aussagen sind richtig
 \begin{itemize}
 \item Wenn \lstinline{(a || b)} true ist, ist mindestens eine der Variablen true.
@@ -46,19 +45,17 @@ Welche der folgenden Aussagen sind richtig
 \item Wenn \lstinline{ !(a || b)} false ist, sind beide Variablen true.
 \item \lstinline{(a && b) || !(a && b)} ist immer true.
 \end{itemize}
-}
 
-\item{
+
+\section*{Aufgabe T2.3}
 Gib eine Bedingung an, die für einen int-Wert x wahr wird, wenn dieser über 25 liegt und eine ungerade Zahl ist. (Lösungshinweis:  Zur Prüfung, ob es sich um eine ungerade Zahl handelt, ist der Modulo-Operator \% hilfreich.)
 
-}
 
-\item{
+\section*{Aufgabe T2.4}
 Ein Schaltjahr ist ein Jahr, dessen Jahreszahl restlos durch vier teilbar ist. Eine Ausnahme bilden die vollen Jahrhundertjahre, deren Jahreszahl durch 100 teilbar ist: Diese sind nur dann ein Schaltjahr, wenn ihre Jahreszahl auch durch 400 teilbar ist.
 Gib einen booleschen Ausdruck an, der für einen Integer-Wert jahr genau dann wahr wird, wenn es sich bei dem in jahr gespeicherten Wert um die Jahreszahl eines Schaltjahrs handelt.
-}
 
-\item{
+\section*{Aufgabe T2.5}
 Ändere das folgende Programm so, dass es Frauen und Männer bei der Begrüßung unterscheidet:
 \begin{lstlisting}
 	boolean male = true;
@@ -66,9 +63,8 @@ Gib einen booleschen Ausdruck an, der für einen Integer-Wert jahr genau dann wa
 	
 	System.out.println("Guten Tag, Herr " + name);
 \end{lstlisting}
-}
 
-\item{
+\section*{Aufgabe T2.6}
 Mit Hilfe der p-q-Formel lassen sich quadratische Gleichungen der Form \(x^2 + p \cdot x + q = 0\) lösen. Es gilt: \(x_{1/2} = - \frac{p}{2} \pm \sqrt{\left( \frac{p}{2}\right)^2 -q}\). Eine reelle Lösung existiert nur dann, wenn die Diskriminante (der Ausdruck unter der Wurzel) nicht negativ ist. 
 
 Schreibe ein Programm, das das Ergebnis/die Ergebnisse für gegebene p und q berechnet und auf der Konsole ausgibt. Wenn es kein Ergebnis im Bereich der reellen Zahlen gibt, soll eine entsprechende Meldung auf der Konsole ausgegeben werden. 
@@ -81,22 +77,20 @@ Bsp.:
 \item Math.pow(2.0, 3.0) gibt den Wert 8.0 zurück
 \end{itemize}
 
-}
-
-\item{
+\clearpage
+\section*{Aufgabe T2.7}
 Schreibe ein Programm, das abhängig von einem Winkel (positiver Integer-Wert) eine der vier Himmelsrichtung Norden, Osten, Süden oder Westen ausgibt. Norden liegt dabei auf \(0^\circ\). 
 
 Es reicht, wenn Winkel von \(0^\circ\) bis \(359^\circ\) verarbeitet werden können.
-}
+
 
 \includegraphics{aufgabe_2_7_kompass.png}
 
-\item{
+\section*{Aufgabe T2.8}
 Schreibe ein Programm, das das gleiche Ziel ganz ohne if-Abfragen nur mit switch/case erreicht.
 
 Lösungshinweise: Normiere den Winkelbereich auf die Anzahl der Himmelsrichtungen. Jede Himmelsrichtung wird dann durch einen von vier Integer-Werten repräsentiert, der als Switch-Variable dient. Dabei ist die ganzzahlige Division hilfreich.
 
 Du solltest dir außerdem überlegen, was man gegen die „unschöne“ Aufteilung der Winkelbereiche tun kann. Jeder dieser Bereiche ist zwar \(90^\circ\) groß, aber Norden liegt zum Beispiel zwischen \(315^\circ\) und \(45^\circ\), Süden zwischen \(135^\circ\) und \(225^\circ\). Das ist zum Normieren etwas unpraktisch.
-}
-\end{enumerate}
+
 \end{document}
