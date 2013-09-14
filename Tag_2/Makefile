@@ -1,8 +1,8 @@
 doc = Vorkurs_Tag2
 doc2 = Vorkurs_Tag2_Aufgaben
-#doc3 = Vorkurs_Tag2_Loesungen
+doc3 = Vorkurs_Tag2_Loesungen
 
-all : $(doc).pdf $(doc2).pdf #$(doc3).pdf
+all : $(doc).pdf $(doc2).pdf $(doc3).pdf
 
 folien : $(doc).pdf
 
