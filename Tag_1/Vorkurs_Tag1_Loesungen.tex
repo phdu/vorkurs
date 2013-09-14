@@ -1,0 +1,85 @@
+\documentclass[final,a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{eurosym}
+\usepackage{enumerate}
+
+\begin{document}
+\lstset{
+	tabsize=4,
+	basicstyle=\small,
+	language=java,
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={€}{{\euro}}1 {ä}{{\"a}}1 {ü}{{\"u}}1
+}
+
+{\huge Programmiervorkurs Tag 1 - Lösungen}
+
+\bigskip
+
+\section*{Hinweise zur Musterlösung}
+Die Lösungen zu den einzelnen Aufgaben beinhalten jeweils nur den lösungsrelevanten Quelltext. Dieser muss sich innerhalb der \texttt{public static void main(String[] args)} Methode befinden.
+\section*{Aufgabe T1.0 (Hello World)}
+\begin{lstlisting}
+	System.out.println("Hello World");
+\end{lstlisting}
+\section*{Aufgabe T1.1}
+\begin{lstlisting}
+	int semester = 2;
+	System.our.println("Ich bin im " + semester + ". Semester.");
+\end{lstlisting}
+\section*{Aufgabe T1.2}
+\begin{lstlisting}
+	double meter = 4.2;
+	System.out.println(meter / 0.3048);
+\end{lstlisting}
+\section*{Aufgabe T1.3}
+\begin{lstlisting}
+	int minuten = 15;
+	System.out.println("Gesamtbetrag: " + (23.34 + 0.1 * 15) + "\euro");
+\end{lstlisting}
+\section*{Aufgabe T1.4}
+\begin{lstlisting}
+	int einser = 3, zweier = 4, dreier = 6, vierer = 7, fuenfer = 2;
+	double durchschnitt = 
+		(einser * 1 + zweier * 2 + dreier * 3 + vierer * 4 + fuenfer * 5)
+		/ (double)(einser + zweier + dreier + vierer + fuenfer);
+	System.out.println("Durchschnitt: " + durchschnitt);
+\end{lstlisting}
+\section*{Aufgabe T1.5}
+\begin{enumerate}[(a)]
+\item 6 	(int) 
+\item 0.5 	(double)
+\item 10 	(int)
+\item -8.6 	(double)
+\end{enumerate}
+\section*{Aufgabe T1.6 (Denkaufgabe)}
+\begin{lstlisting}
+	int days = 361;
+	int year = days / 360 + 1970;
+	int month = (days % 360) / 30 + 1;
+	int day = (days % 30) + 1;
+	System.out.println(day + "." + month + "." + year);
+\end{lstlisting}
+
+
+\section*{Aufgabe T1.7}
+\begin{lstlisting}
+int dieAntwort = zweiundvierzig; // richtig wäre 42
+int einkommenIn€ = 1337; // € ist unzulaessig
+int riesigeZahl = 5400000000; // maximum für int ist 2147438647
+int 42istdieAntwort = 23; // namen dürfen nicht mit zahlen beginnen
+string buchstabensalat = "23" - 42; // hier ist 23 ein string (eine buchstabenkette). Von dieser kann keine Zahl subtrahiert werden. Um damit zu rechnen, müsste ein cast (int) vorangestellt werden.
+\end{lstlisting}
+
+\section*{Aufgabe T1.8}
+Es wird berechnet wieviele Klausuren insgesammt nicht bestanden werden. Dazu wird die Anzahl der Studenten mit der Anzahl der Fächer multipliziert (= Gesamtzahl an Klausuren) und diese dann mit der Durchfallquote multipliziert, dies ergibt dann die Summer aller nicht bestandenen Klausuren in allen Fächern.
+%Es werden die Variablen studenten, faecher und durchfallquote mit vorgegebenen Werten initialisiert. Danach wird die Anzahl der zu wiederholenden Kurse berechnet und in die Variable ergebnis gespeichert. Danach wird die Variable ergebnis ausgegeben.
+
+\end{document}
