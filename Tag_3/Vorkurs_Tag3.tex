@@ -6,6 +6,7 @@
 \usepackage{lmodern}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \newcommand{\ThemeFolder}{FSIBeamerTheme}
 \RequirePackage{\ThemeFolder/beamerthemeFSI}
 
@@ -29,9 +30,8 @@
 
 \begin{document}
 
-\lstset{tabsize=4}
-\lstset{basicstyle=\small}
-\lstset{language=java}
+\input{../lstsettings.tex}
+\lsetset{backgroundcolor=\color{transparent}}
 
 \begin{frame}
 	\titlepage
