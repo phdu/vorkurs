@@ -27,7 +27,7 @@
       \huge{Tag 4}
       \vfill
       \large{Tristan Wagner}\\
-      \tiny{WS2013/2014}
+      \tiny{WS 2013/2014}
   \end{center}
 }
 
@@ -40,19 +40,28 @@
 \end{frame}
 
 \begin{frame}
-  \tableofcontents
+	\frametitle{Inhaltsübersicht Vorkurs}
+	\begin{itemize}
+	{\color{gray}
+		\item {Tag 1: Variablen, Datentypen, Konvertierungen, Arithmetik, Netbeans, Einführung Debugging}
+		\item {Tag 2: Boolesche Ausdrücke, Kommentare, If-Abfragen, Switch-Case, Weiterführung Debugging}
+		\item {Tag 3: Arrays, (Do-)While-Schleife, For-Schleifen, Weiterführung Debugging}
+		{\color{black}
+		\item {Tag 4: (statische) Methoden, Klassenvariablen, JavaDoc, Exceptions}
+		}
+	}
+	\end{itemize}
 \end{frame}
 
-\section{Über mich}
+\section{Ablauf}
 \begin{frame}
-	\frametitle{Über mich}
-	\textbf{Daniel Hoff}
-	\begin{itemize}
-		\item{6. Semester Informatik}
-		\item{aktiver Fachschafter}
-		\item{gewählter studentischer Vertreter im Fakultätsrat}
-		\item{Vorsitzender des Fachschaftsvereins}
-	\end{itemize}
+  \frametitle{Ablauf}
+  \begin{itemize}
+    \item{09:30 Vorstellung der Lösungen des Vortages}
+    \item{ab 10:00 Vorlesung}
+    \item{90 min Mittagspause}
+    \item{gegen 12:30 / 13:00 Übungen}
+  \end{itemize}
 \end{frame}
 
 \section{Methoden}
@@ -344,13 +353,13 @@ public static !\color{blue}int! zaehleVonBis(int v, int b) {
 \begin{frame}[containsverbatim]
 	\frametitle{Generell}
 	\begin{lstlisting}[escapechar=!]
-public static !\color{blue}Rückgabetyp! !\color{green}Name! (!\color{red}Parameter!) {
+public static !\color{orange}Rückgabetyp! !\color{black}Name! (!\color{red}Parameter!) {
 	// Methodenrumpf
 	!\color{blue}return! ... ; 
 }
 	\end{lstlisting}
 	\begin{itemize}
-		\item{Wenn der {\color{blue}Rückgabetyp} \textbf{void} ist, darf kein {\color{blue}return} vorkommen}
+		\item{Wenn der {\color{blue}Rückgabetyp} \textbf{void} ist, darf das {\color{blue}return} keinen Rückgabewert haben und ist optional}
 	\end{itemize}
 \end{frame}
 
@@ -414,7 +423,7 @@ public class Main {
 		for (int i = v; i <= b; i++) {
 			System.out.println(i);
 		}
-		!\color{red}wurdeAusgegeben! = b >= v;
+		!\color{blue}this.!!\color{red}wurdeAusgegeben! = b >= v;
 		return b - v + 1;
 	}
 }
@@ -425,7 +434,7 @@ public class Main {
 	\frametitle{Deklaration von Klassenvariablen}
 	\begin{itemize}
 		\item{Deklaration direkt nach Klassendeklaration}
-		\item{\textbf{public static} {\color{blue}Datentyp} {\color{red}Bezeichner};}
+		\item{\textbf{public static} {\color{blue}Datentyp} {\color{red}Variablenname};}
 		\item{sichtbar in der ganzen Klasse}
 		\item{Ohne manuelle Zuweisung wird der Defaultwert zugewiesen}
 		\item{Beispiel:
@@ -453,7 +462,138 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 		\pause
 			\includegraphics[width=\textwidth]{gfx/Wait-what-meme-rage-face.jpg}
 	\end{columns}
-	
+\end{frame}
+
+\subsection{Methoden}
+\begin{frame}
+	\frametitle{Methoden}
+	\begin{itemize}
+		\item{{\color{blue}public static} String[] \textbf{addNewTicket}(String[] oldTickets, String newTicket, {\color{blue}boolean} bahncard)}
+		\item{{\color{blue}public static void} \textbf{calculateNewSum}({\color{blue}int} distance, {\color{blue}boolean} bahncard)}
+		\item{{\color{blue}public static double} \textbf{getSum}()}
+		\item{{\color{blue}public static void} \textbf{resetSum}()}
+		\item{{\color{blue}public static void} \textbf{beginPayment}()}
+		\item{{\color{blue}public static void} \textbf{insertMoney}({\color{blue}int} amount)}
+		\item{{\color{blue}public static double} \textbf{getAmountLeft}()}
+		\item{{\color{blue}public static boolean} \textbf{isAmountLeft}()}
+		\item{{\color{blue}public static double} \textbf{getChangeAmount}()}
+		\item{{\color{blue}public static int}[] \textbf{getChangeCoins}()}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{addNewTicket}
+\begin{frame}
+	\frametitle{addNewTicket}
+	\begin{itemize}
+		\item{Parameter:}
+			\begin{itemize}
+				\item{oldTickets: String Array enthält die alten Tickets}
+				\item{newTicket: String}
+				\item{bahncard: boolean}
+			\end{itemize}
+		\item{Beschreibung:}\\
+Soll den Parameter \textbf{\textit{oldTickets}} um den Parameter \textbf{\textit{newTicket}} erweitern und für den fall das der Parameter \textbf{\textit{bahncard}} {\color{blue}true} ist um \enquote{ (Bahncard)} erweitern und anschließend zurück geben.
+	\end{itemize}
+\end{frame}
+
+\subsubsection{getSum}
+\begin{frame}
+	\frametitle{getSum}
+	\begin{itemize}
+		\item{Hat keine Parameter}
+		\item{Gibt den aktuellen Gesamtpreis als double in Euro zurück}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{calculateNewSum}
+\begin{frame}
+	\frametitle{calculateNewSum}
+	\begin{itemize}
+		\item{Parameter:}
+			\begin{itemize}
+				\item{distance: integer}
+				\item{bahncard: boolean}
+			\end{itemize}
+		\item{Beschreibung:}
+Berechnet den Gesamtpreis aller bisher sowei dem aktuell ausgewählten Ticket. \\
+Dabei gilt:\\
+			\begin{itemize}
+				\item{Bis 200km: 10 \euro + 0.20 \euro pro km}
+				\item{Ab 200km: 5 \euro + 0.15 \euro pro km}
+				\item{Mit einer Bahncard erhält man immer 25\% Rabatt}
+			\end{itemize}
+		\item{Hat keinen Rückgabewert}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{resetSum}
+\begin{frame}
+	\frametitle{resetSum}
+	\begin{itemize}
+		\item{Hat keine Parameter}
+		\item{Hat keine Rückgabewert}
+		\item{Setzt den Gesamtpreis auf 0 zurück}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{insertMoney}
+\begin{frame}
+	\frametitle{insertMoney}
+	\begin{itemize}
+		\item{Parameter:}
+			\begin{itemize}
+				\item{amount: integer}
+			\end{itemize}
+		\item{Beschreibung:}
+Wenn der Kunde einen Geldschein einwirft wird diese Methode aufgerufen. Der noch noch zu bezahlende Betrag muss dementsprechen angepasst werden
+		\item{Hat keinen Rückgabewert}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{getAmountLeft}
+\begin{frame}
+	\frametitle{getAmountLeft}
+	\begin{itemize}
+		\item{Hat keine Parameter}
+		\item{Als Rückgabewert soll hier der noch zu zahlende Betrag als double in Euro zurück gegben werden}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{getChangeAmount}
+\begin{frame}
+	\frametitle{getChangeAmount}
+	\begin{itemize}
+		\item{Hat keine Parameter}
+		\item{Wird aufgerufen wenn der Kunde ausreichen Geld eingeworfen hat}
+		\item{Gibt den Betrag des Wechselsgeld zurück. Dieser muss Positiv sein}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{getChangeCoins}
+\begin{frame}
+	\frametitle{getChangeCoins}
+	\begin{itemize}
+		\item{Hat keine Parameter}
+		\item{Beschreibung:}
+Berechnet wieviel Münzen von jeder Sorte der Kunde zurück bekommt.
+		\item{Gibt ein Array zurück in dem die Anzahl der entsprechenden Münzen enthält}
+			\begin{itemize}
+				\item{Rückgabe[0]: enthält die Anzahl der 2 \euro-Münzen}
+				\item{Rückgabe[1]: enthält die Anzahl der 1 \euro-Münzen}
+				\item{...}
+				\item{Rückgabe[7]: enthält die anzahl der 1 ct-Münzen}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\subsubsection{beginPayment}
+\begin{frame}
+	\frametitle{beginPayment (OPTIONAL)}
+	\begin{itemize}
+		\item{Diese Methode ist Optional}
+		\item{Wird nicht immer benötigt}
+		\item{Kann für spezielle aktionen zu begin des Bezahlvorgangs verwendet werden}
+	\end{itemize}
 \end{frame}
 
 \section{Quellen \& Lizenz}
@@ -465,6 +605,7 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 	\begin{itemize}
 		\item{Original von Samuel Zeitvogel}
 		\item{Überarbeitet 2012 von Daniel Hoff}
+		\item{Überarbeitet 2013 von Tristan Wagner}
 	\end{itemize}
 \end{frame}
 
