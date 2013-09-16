@@ -63,7 +63,7 @@
   {\color{gray}
     \item {Tag 1: Variablen, Datentypen, Konvertierungen, Arithmetik, Netbeans, Einführung Debugging}
     {\color{black}
-    \item {Tag 2: Boolesche Ausdrücke, Kommentare, If-Abfragen, Switch-Case, Weiterführung Debugging}
+    \item {Tag 2: Boolesche Ausdrücke, Kommentare, If-Abfragen, Switch-Case}
     }
     \item {Tag 3: Arrays, (Do-)While-Schleife, For-Schleifen, Weiterführung Debugging}
     \item {Tag 4: (statische) Methoden, Klassenvariablen, JavaDoc, Exceptions}
@@ -78,7 +78,6 @@
 		\item {Kommentare}
 		\item {If-Abfragen}
 		\item {Switch-Case}
-		\item {Weiterführung Debugging}
 	\end{itemize}
 \end{frame}
 
@@ -127,33 +126,66 @@ Zeilenkommentar:
 \end{frame}
 
 \subsection{Beispiel}
-%TODO
 \begin{frame}[containsverbatim]
 \frametitle{Beispiel}
 	\begin{lstlisting}
 /**
-* This Class is dangerous! Do not execute it.
-* @author memo
-*/
-public class GladOS {
-	/*
-	* Die wichtigste Methode: 
-	* alles was ausgefuehrt wird muss zumindest 
-	* hier aufgerufen werden.
-	*/
+ * Ein Hello World Programm in Java
+ * 
+ * @author Struppi
+ * @version 1.0
+ */
+public class Hello {
+
 	public static void main(String[] args){
-		// the cake is a lie
-		boolean cake = true;
+		//gibt Hello World! aus 
+		System.out.println("Hello World!");
+		/*
+		 * soll noch ganz viele andere 
+		 * tolle sachen ausgeben
+		 */
 	}
 }
 
 	\end{lstlisting}
+	
+%	/**
+%* This Class is dangerous! Do not execute it.
+%* @author memo
+%*/
+%public class GladOS {
+%	/*
+%	* Die wichtigste Methode: 
+%	* alles was ausgefuehrt wird muss zumindest 
+%	* hier aufgerufen werden.
+%	*/
+%	public static void main(String[] args){
+%		// the cake is a lie
+%		boolean cake = true;
+%	}
+%}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[containsverbatim]
 	\frametitle{Deklaration einer Methode mit Javadoc.}
-	%TODO nicht als bild
-	\includegraphics[scale=0.5]{JavaDoc_example_1_1.png}
+	\begin{lstlisting}
+/**
+ * determines whether this shape is located at point pos.
+ * 
+ * @parm pos the point that is queried.
+ * @return whether this shape is located at point pos.
+ */
+public boolean amIHere(Point pos){
+	if(((firstPaintingPoint.x < pos.x) &&
+		 (secondPaintingPoint.x > pos.x)) &&
+	  ((firstPaintingPoint.y < pos.y) &&
+		(secondPaintingPoint.y > pos.y))) {
+		return true;
+	} else {
+		return false;
+	}
+}
+	\end{lstlisting}
 \end{frame}
 
 \begin{frame}
@@ -278,14 +310,13 @@ public class GladOS {
 \end{frame}
 
 \subsection{boolscher Ausdruck} 
-%TODO verständlich machen
-%TODO kleines beispiel eines boolischen ausdruckes für nächste aufgabe
 \begin{frame}
 	\frametitle{Definition: boolscher Ausdruck}
 	\begin{itemize}
-		\item{Bedingung A - kann wahr oder falsch sein}
-		\item{(Bedingung A || Bedingung B) \&\& Bedingung C}
-		\item{"Ich habe den Compagnion Cube" \&\& "Ich bin unsterblich" (kann der Compiler so nicht auswerten, Menschen schon)}
+		\item{Eine Bedingung - kann wahr oder falsch sein}
+		\item{Mehrere Bedingungen können verknüpft werden}
+		\item{"Student an der Hochschule" \&\& "Im ersten Semester" (kann der Compiler so nicht auswerten, Menschen schon)}
+		\uncover<2->{\item{studentAnHsKa \&\& semester == 1}}
 	\end{itemize}
 \end{frame}
 
@@ -385,19 +416,19 @@ if (Bedingung) {
 \end{frame}
 
 \begin{frame}[containsverbatim]
-	\frametitle{}
-	%TODO FUKKING BEISPIEL ÄNDERN !!!
-	\begin{lstlisting}
-String answer = "studying";
-if (answer == "Cake") {
-	System.out.println("nice try");
-} else if (answer == "42"){
-	System.out.println("You got it!");
-} else if (answer == "studying"){
-	System.out.println("Not to everything, but very commendable");
-} else {
-	System.out.println("think harder!")
-}
+	\frametitle{Beispiel}
+	\begin{lstlisting}at
+if(esGibtMate){
+		System.out.println
+		("nimm ne Mate und geh zur Vorlesung");
+	} else if (esGibtKaffee){
+		System.out.println
+		("nimm nen Kaffee und geh zur Vorlesung");
+	} else {
+		System.out.println
+		("Vergiss den tag und geh wieder heim ins bett");
+	}
+	
 	\end{lstlisting}
 \end{frame}
 
@@ -411,51 +442,56 @@ if (answer == "Cake") {
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[containsverbatim]
-	\frametitle{noch ein etwas praktischeres Beispiel:}
-	%TODO evtl auch anderes bsp. da int und geteilt nicht gut
-	\begin{lstlisting}
-int a, b;
-...
-if (a != 0) {
-	System.out.print("b/a: ");
-	System.out.println(b/a);
-} else {
-	System.out.println("Division durch 0!");
-}
-	\end{lstlisting}	
-	Hier ist die Bedingung das Ergebnis eines Vergleichs.	
-\end{frame}
+%\begin{frame}[containsverbatim]
+%	\frametitle{noch ein etwas praktischeres Beispiel:}
+%	%TODO evtl auch anderes bsp. da int und geteilt nicht gut
+%	\begin{lstlisting}
+%int a, b;
+%...
+%if (a != 0) {
+%	System.out.print("b/a: ");
+%	System.out.println(b/a);
+%} else {
+%	System.out.println("Division durch 0!");
+%}
+%	\end{lstlisting}	
+%	Hier ist die Bedingung das Ergebnis eines Vergleichs.	
+%\end{frame}
 
 \subsection{false == true}
 \begin{frame}[containsverbatim]
 	\frametitle{Abkürzungen bei boolschen Variablen}
-	%TODO
 	\begin{lstlisting}
 boolean istStudent = true;
-if (!istStudent) {
-	// gewaehre keinen Studentenrabatt
+if (istStudent) {
+	// gewaehre Studentenrabatt
 }
 //entspricht der Abfrage folgender Bedingungen:
-if (istStudent == false) { ... }
-if (!(istStudent == true)) { ... }
+if (istStudent == true) { ... }
 
+//umgedreht:
+if (!istStudent){
+	//gewaehre keinen Studentenrabatt
+}
+//entspricht
+if (istStudent == false) { ... }
 	\end{lstlisting}
 \end{frame}
 
 \subsection{Verschachtelung}
 \begin{frame}[containsverbatim]
 	\frametitle{Verschachtelte if-Abfragen}
-	%TODO verständliches beispiel
 	\begin{lstlisting}
-long losnummer;
+int age;
 ...
-if (losnummer > 3) {
-	if (losnummer % 315 == 4) {
-		System.out.println("Gewinnerlos");
+if(age < 18){
+	if(age < 12){
+		System.out.println("kein Eintritt");
+	} else {
+		System.out.println("Ermäsigter Eintritt");
 	}
 } else {
-	System.out.println("Verliererlos");
+	System.out.println("Normal Preis");
 }
 	\end{lstlisting}
 	=> Vorsicht! Wird leicht unübersichtlich!
@@ -466,19 +502,11 @@ if (losnummer > 3) {
 \begin{frame}[containsverbatim]
 	\frametitle{Fallunterscheidung durch Switch/Case}
 	\begin{itemize}
-		\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
-		\item{nur ganzzahlige Typen oder char}
-		\item{Anweisungen für alle relevanten Werte, die die Variable annehmen kann}
-	\end{itemize}
-\end{frame}
-
-\subsection{Details}
-\begin{frame}[containsverbatim]
-  \frametitle{Fallunterscheidung durch Switch/Case}
-  \begin{itemize}
+	\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
+	\item{nur ganzzahlige Typen oder char}
 	\item{jeder Wert darf nur einmal vorkommen}
 	\item{läuft durch bis break oder bis zum Ende des Switch}
-	\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt}
+	\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt, wenn vorhanden}
   \end{itemize}
 \end{frame}
 
