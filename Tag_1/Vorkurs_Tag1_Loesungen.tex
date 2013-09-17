@@ -52,17 +52,7 @@ Die Lösungen zu den einzelnen Aufgaben beinhalten jeweils nur den lösungsrelev
 \item 10 	(int)
 \item -8.6 	(double)
 \end{enumerate}
-\section*{Aufgabe T1.6 (Denkaufgabe)}
-\begin{lstlisting}
-	int days = 361;
-	int year = days / 360 + 1970;
-	int month = (days % 360) / 30 + 1;
-	int day = (days % 30) + 1;
-	System.out.println(day + "." + month + "." + year);
-\end{lstlisting}
-
-
-\section*{Aufgabe T1.7}
+\section*{Aufgabe T1.6}
 \begin{lstlisting}
 int dieAntwort = zweiundvierzig; // richtig wäre 42
 int einkommenIn€ = 1337; // € ist unzulaessig
@@ -70,12 +60,19 @@ int riesigeZahl = 5400000000; // maximum für int ist 2147438647
 int 42istdieAntwort = 23; // namen dürfen nicht mit zahlen beginnen
 string buchstabensalat = "23" - 42; // hier ist 23 ein string (eine buchstabenkette). Von dieser kann keine Zahl subtrahiert werden. Um damit zu rechnen, müsste ein cast (int) vorangestellt werden.
 \end{lstlisting}
-
-\section*{Aufgabe T1.8}
+\section*{Aufgabe T1.7}
 \subsection*{GUT:}
 Es wird berechnet wieviele Klausuren insgesammt nicht bestanden werden. Dazu wird die Anzahl der Studenten mit der Anzahl der Fächer multipliziert (= Gesamtzahl an Klausuren) und diese dann mit der Durchfallquote multipliziert, dies ergibt dann die Summer aller nicht bestandenen Klausuren in allen Fächern.
 
 \subsection*{SCHLECHT:}
 Es werden die Variablen studenten, faecher und durchfallquote mit vorgegebenen Werten initialisiert. Danach wird die Anzahl der zu wiederholenden Kurse berechnet und in die Variable ergebnis gespeichert. Danach wird die Variable ergebnis ausgegeben.
+\section*{Aufgabe T1.8 (Denkaufgabe)}
+\begin{lstlisting}
+	int days = 361;
+	int year = days / 360 + 1970;
+	int month = (days % 360) / 30 + 1;
+	int day = (days % 30) + 1;
+	System.out.println(day + "." + month + "." + year);
+\end{lstlisting}
 
 \end{document}

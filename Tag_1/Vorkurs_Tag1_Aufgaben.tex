@@ -20,10 +20,12 @@
 
 \textbf{\color{red}Denkt daran für jede Aufgabe ein neues Projekt anzulegen!}
 
+\textbf{\color{orange}Die Sterne symbolisieren die Schwierigkeit der Aufgaben.}
+
 Die Sterne bezeichnen die Schwierigkeit der Aufgaben.
 
 \section*{Aufgabe T1.0 (Hello World)}
-Erstelle auf dem IZ Laufwerk ein Verzeichnis.
+Erstelle auf dem IZ Laufwerk (.nt) ein Verzeichnis.
 Danach startest du NetBeans (oder Eclipse).
 Du solltest für jede Übung ein neues Projekt in deinem Verzeichnis erstellen.
 Das erste Übungsprogramm soll auf der Konsole den Text „Hello World“ ausgeben.
@@ -45,7 +47,7 @@ Ein Fuß (1 ft) = 30,48 cm.
 \section*{Aufgabe T1.3 **}
 Ein Mobiltarif kostet einen Grundbetrag (23,34 \euro) und je Minute 10 Cent. 
 
-Schreibe ein Programm, welches für eine beliebige Anzahl von Minuten (die wieder mal in einer Variable stehen) den Gesamtbetrag berechnet.
+Schreibe ein Programm, welches für eine von euch gewählte Anzahl von Minuten (soll in eine Variable geschrieben werden, eine graphische Eingabe ist nicht verlangt) den Gesamtbetrag berechnet.
 
 \section*{Aufgabe T1.4 **}
 Lege ein Programm an, in dem es zunächst folgende Integer Variablen gibt: einser, zweier, dreier, vierer, fuenfer
@@ -63,11 +65,30 @@ Den Wert kannst du prüfen indem du den Ausdruck einfach von einem Programm ausg
 \item 1 + 2.0 / 5.0f – 10
 \end{enumerate}
 
+\section*{Aufgabe T1.6 **}
+Was ist an den folgenden Zeilen falsch?
+\begin{lstlisting}
+int dieAntwort = zweiundvierzig;
+int einkommenIn€ = 1337;
+int riesigeZahl = 5400000000;
+int 42istdieAntwort = 23; 
+int berechnung = "23" - 42;
+\end{lstlisting}
 
-\section*{Aufgabe T1.6 ***}
-Schreibe ein Programm, das in einer Variablen days die Tage seit dem 1.1.1970 gespeichert hat.
+\section*{Aufgabe T1.7 **}
+Beschreibe in eigenen Worten was die folgende Funktion tut:
+\begin{lstlisting}
+public static void main(){
+	int studenten = 150;
+	int faecher = 8;
+	int durchfallquoteInProzent = 20;
+	int ergebnis = studenten*faecher*durchfallquoteInProzent/100;
+	System.out.println(ergebnis);
+}
+\end{lstlisting}
 
-Gebe nun auf der Konsole das Datum zu days aus. 
+\section*{Aufgabe T1.8 ***}
+Schreibe ein Programm, das in einer Variablen days die Tage seit dem 1.1.1970 gespeichert hat. Konkret geht es darum, um die in days spezifizierte Anzahl Tage auf den 1.1.1970 zu addieren. Als Lösung soll das neue Datum auf der Konsole ausgegeben werden.
 
 Zur Vereinfachung gehe davon aus, dass jeder Monat 30 Tage hat und jedes Jahr aus 12 Monaten besteht.
 Beispiel:
@@ -79,27 +100,5 @@ Beispiel:
 \item Die Variable days hat den Wert 360. Die Ausgabe soll sein: 1.1.1971
 \item usw.
 \end{itemize}
-
-\section*{Aufgabe T1.7 **}
-Was ist an den folgenden Zeilen falsch?
-\begin{lstlisting}
-int dieAntwort = zweiundvierzig;
-int einkommenIn€ = 1337;
-int riesigeZahl = 5400000000;
-int 42istdieAntwort = 23; 
-int berechnung = "23" - 42;
-\end{lstlisting}
-
-\section*{Aufgabe T1.8 **}
-Beschreibe in eigenen Worten was die folgende Funktion tut:
-\begin{lstlisting}
-public static void main(){
-	int studenten = 150;
-	int faecher = 8;
-	int durchfallquoteInProzent = 20;
-	int ergebnis = studenten*faecher*durchfallquoteInProzent/100;
-	System.out.println(ergebnis);
-}
-\end{lstlisting}
 
 \end{document}
