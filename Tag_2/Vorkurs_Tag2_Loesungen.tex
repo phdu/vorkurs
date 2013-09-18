@@ -80,6 +80,9 @@ public static void main(String[] args){
 
 	if (diskriminante < 0) {
 		System.out.println("Für die gegebenen p und q existiert keine Loesung im Bereich der reellen Zahlen!");
+	} else if (diskriminante == 0){
+		x1 = p * -0.5;
+		System.out.println("x: " + x1);
 	} else {
 		x1 = p * -0.5 + Math.sqrt(diskriminante);
 		x2 = p * -0.5 - Math.sqrt(diskriminante);
@@ -89,22 +92,24 @@ public static void main(String[] args){
 }
 \end{lstlisting}
 
+\clearpage
+
 \section*{Aufgabe T2.7}
 \begin{lstlisting}
 public static void main(String[] args){
 
 	int winkel = 0;
 
-	if (winkel >= 0 && winkel <= 45 || winkel > 315 && winkel < 360) {
+	if (winkel >= 0 && winkel < 45 || winkel > 315 && winkel < 360) {
 		System.out.println("Norden");
-	} else if (winkel > 45 && winkel <= 135) {
+	} else if (winkel => 45 && winkel < 135) {
 		System.out.println
-	} else if (winkel > 135 && winkel <= 225) {
+	} else if (winkel => 135 && winkel < 225) {
 		System.out.println("Sueden");
-	} else if (winkel > 225 && winkel <= 315) {
+	} else if (winkel => 225 && winkel < 315) {
 		System.out.println("Westen");
 	} else {
-		System.out.println("Ungueltiger Winkel! Bitte einen Wert								 zwischen 0 und 359 wählen!");
+		System.out.println("Ungueltiger Winkel! Bitte einen Wert zwischen 0 und 359 wählen!");
 	}
 }
 \end{lstlisting}
