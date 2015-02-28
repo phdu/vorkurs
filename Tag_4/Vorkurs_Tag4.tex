@@ -2,6 +2,8 @@
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{eurosym}
 \usepackage{lmodern}
 \usepackage{listings}
 \usepackage{graphicx}
@@ -26,8 +28,8 @@
       \huge{Einführung in Java}\\
       \huge{Tag 4}
       \vfill
-      \large{Tristan Wagner}\\
-      \tiny{WS 2013/2014}
+      \large{Tobias Kerst}\\
+      \tiny{SS 2015}
   \end{center}
 }
 
@@ -86,8 +88,8 @@ public class Main {
 
 \subsection{Warum?}
 \begin{frame}
-	\frametitle{Warum?}
-	\textbf{Probleme?}
+	\frametitle{Warum ist der Code problematisch?}
+	\textbf{Probleme:}
 	\begin{itemize}
 		\item{zeitaufwändig}
 		\item{(zu) viel Code}
@@ -138,21 +140,8 @@ public static void zaehlBisZehn () {
 	\end{lstlisting}
 	\begin{itemize}
 		\item{\textbf{public static} immer am Anfang (wird im Vorkurs nicht behandelt)}
+		\item{\textbf{Rückgabetyp} was gibt mir die Methode zurück}
 		\item{\textbf{Methodenname} vor den runden Klammern}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[containsverbatim]
-	\frametitle{Aufruf einer Methode}
-	\begin{lstlisting}
-public static void Main () {
-	zaehlBisZehn();
-}
-	\end{lstlisting}
-	\begin{itemize}
-		\item{Methodenname}
-		\item{()}
-		\item{;}
 	\end{itemize}
 \end{frame}
 
@@ -163,6 +152,21 @@ public static void Main () {
 		\item{Beim Methodenaufruf können zusätzliche Informationen (= Parameter) an die Methode übergeben werden}
 		\item{Methoden können Informationen an den Aufrufer zurück geben}
 		\item{Methoden können sich selbst aufrufen (= Rekursion) (nicht Teil des Vorkurses)}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+	\frametitle{Aufruf einer Methode}
+	\begin{lstlisting}
+	public static void main() {
+		zaehlBisZehn();
+		int x = gibMir42();
+		int y = verdoppelWert(x);
+	\end{lstlisting}
+	\begin{itemize}
+		\item{Methodenname}
+		\item{(Parameter)}
+		\item{;}
 	\end{itemize}
 \end{frame}
 
@@ -363,6 +367,58 @@ public static !\color{orange}Rückgabetyp! !\color{black}Name! (!\color{red}Para
 	\end{itemize}
 \end{frame}
 
+\subsubsection{Beispiel Lesbarkeit}
+
+\begin{frame}[containsverbatim]
+	\frametitle{Lesbarkeit durch Methoden}
+	\begin{itemize}
+	\item{Berechnung der Fakultät: $n! = 1 \times 2 \times \dots \times n$}
+	\end{itemize}
+	\begin{lstlisting}[escapechar=!]
+	static long fak(int n)
+    {
+        long faku = 1;
+        // Iterative Berechnung
+        for(int i = 1; i<=n; i++)
+        {
+            faku *= i;
+        }
+        return faku;
+    } 
+	\end{lstlisting}
+	\begin{itemize}
+		\item{Um Fakultät zu berechnen benötigt man eine Schleife}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Binomialkoeffizient berechnen}
+	\[\left(\!\!\!
+  	\begin{array}{c}
+	    n \\
+	    k
+	\end{array}
+	  \!\!\!\right) = \frac{n!}{(n-k)! \times k!}
+	\]
+	\begin{itemize}
+		\item{Für die Berechnung braucht man 3 Mal eine Fakultät}
+		\item{Somit 3 Schleifen in der Berechnung}
+		\item{Code unlesbar}
+	\end{itemize}
+	\pause
+	\textbf{Lösung}
+	\begin{itemize}
+		\item{Methode \texttt{long fak(int n)} benutzen}
+	\end{itemize}
+	\pause
+	\begin{lstlisting}[basicstyle=\tiny]
+	static double berechneBinomialkoeffizient(int n, int k) {
+	    double bin = fak(n) / (fak(n - k) * fak(k));
+	    return bin;
+	}
+	\end{lstlisting}
+\end{frame}
+
 \section{Klassenvariablen}
 \begin{frame}[containsverbatim]
 	\frametitle{Beispiel ohne Klassenvariablen}
@@ -492,7 +548,7 @@ public static !\color{blue}boolean! !\color{red}wurdeAusgegeben!;
 				\item{bahncard: boolean}
 			\end{itemize}
 		\item{Beschreibung:}\\
-Soll den Parameter \textbf{\textit{oldTickets}} um den Parameter \textbf{\textit{newTicket}} erweitern und für den fall das der Parameter \textbf{\textit{bahncard}} {\color{blue}true} ist um \enquote{ (Bahncard)} erweitern und anschließend zurück geben.
+Soll den Parameter \textbf{\textit{oldTickets}} um den Parameter \textbf{\textit{newTicket}} erweitern und für den fall das der Parameter \textbf{\textit{bahncard}} {\color{blue}true} ist um \enquote{(Bahncard)} erweitern und anschließend zurück geben.
 	\end{itemize}
 \end{frame}
 
@@ -564,8 +620,8 @@ Wenn der Kunde einen Geldschein einwirft wird diese Methode aufgerufen. Der noch
 	\frametitle{getChangeAmount}
 	\begin{itemize}
 		\item{Hat keine Parameter}
-		\item{Wird aufgerufen wenn der Kunde ausreichen Geld eingeworfen hat}
-		\item{Gibt den Betrag des Wechselsgeld zurück. Dieser muss Positiv sein}
+		\item{Wird aufgerufen, wenn der Kunde ausreichend Geld eingeworfen hat}
+		\item{Gibt den Betrag des Wechselsgeld zurück (in Euro). Dieser muss Positiv sein}
 	\end{itemize}
 \end{frame}
 
@@ -576,7 +632,7 @@ Wenn der Kunde einen Geldschein einwirft wird diese Methode aufgerufen. Der noch
 		\item{Hat keine Parameter}
 		\item{Beschreibung:}
 Berechnet wieviel Münzen von jeder Sorte der Kunde zurück bekommt.
-		\item{Gibt ein Array zurück in dem die Anzahl der entsprechenden Münzen enthält}
+		\item{Gibt ein Array zurück, das die Anzahl der entsprechenden Münzen enthält}
 			\begin{itemize}
 				\item{Rückgabe[0]: enthält die Anzahl der 2 \euro-Münzen}
 				\item{Rückgabe[1]: enthält die Anzahl der 1 \euro-Münzen}
@@ -606,6 +662,7 @@ Berechnet wieviel Münzen von jeder Sorte der Kunde zurück bekommt.
 		\item{Original von Samuel Zeitvogel}
 		\item{Überarbeitet 2012 von Daniel Hoff}
 		\item{Überarbeitet 2013 von Tristan Wagner}
+		\item{Überarbeitet 2015 von Tobias Kerst}
 	\end{itemize}
 \end{frame}
 
