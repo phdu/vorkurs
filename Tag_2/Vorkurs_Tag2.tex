@@ -96,18 +96,18 @@
 	\begin{lstlisting}
 JavaDoc:
 /**
-* Kommentar (auch ueber mehrere Zeilen), der
-* automatisch zu html-Dokumentation
-* verarbeitet werden kann
-*/
+ * Kommentar (auch ueber mehrere Zeilen),
+ * der automatisch zu html-Dokumentation
+ * verarbeitet werden kann
+ */
 
 Blockkommentar:
 /*
-* Mehrzeilige Kommentare sind ideal, wenn
-* viele Informationen unterzubringen sind.
-* Es gilt die Devise: so knapp wie
-* moeglich, so ausfuehrlich wie noetig.
-*/
+ * Mehrzeilige Kommentare sind ideal, wenn
+ * viele Informationen unterzubringen sind.
+ * Es gilt die Devise: so knapp wie
+ * moeglich, so ausfuehrlich wie noetig.
+ */
 
 Zeilenkommentar:
 // endet mit Zeilenumbruch
@@ -376,7 +376,7 @@ doors <= 2
 	\frametitle{Exkurs: Gleitkommazahlen}
 	\begin{itemize}
 		\item{Gleitkommazahlen in Java sind anfällig für Rundungsfehler}
-		\item{Schon der Variablentyp kann einen Unterschied machen}
+		\item{schon der Variablentyp kann einen Unterschied machen}
 		\item{niemals direkt (mit ==) vergleichen!}
 	\end{itemize}
 \end{frame}
@@ -386,7 +386,7 @@ doors <= 2
 	\frametitle{Exkurs: Gleitkommazahlen}
 	\begin{itemize}
 		\item{0.02d (double) == 0.02f (float) ?}
-		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\
+		\item{=> um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\
 		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
 		\item{Math.abs(zahl) berechnet den Betrag von zahl}
 	\end{itemize}
@@ -454,8 +454,8 @@ if(weHaveMate){
 int a;
 double b;
 \\ ...
-\\ hier muessen die Variablen noch
-\\ Werte zugewiesen bekommen
+\\ hier muessen den Variablen noch
+\\ Werte zugewiesen werden
 \\ ...
 if (a != 0) {
 	System.out.print("b/a: ");
@@ -475,7 +475,7 @@ boolean istStudent = true;
 if (isStudent) {
 	// gewaehre Studentenrabatt
 }
-//entspricht der Abfrage folgender Bedingungen:
+//entspricht
 if (isStudent == true) { ... }
 
 //umgedreht:
@@ -528,29 +528,33 @@ int fallThrough;
 ...
 switch (fallThrough) {
 case 0:
-	System.out.println("Operation erfolgreich");
+	System.out.println("Erfolgreich");
 	break;
 case 1:
 	System.out.println("Abgebrochen");
 	// fall through
 case 2:
-	System.out.println("Operation gescheitert");
+	System.out.println("Gescheitert");
 	break;
 default:
-	System.out.println("Unbekannter Fall!");
+	System.out.println("Unbekannt");
 }
 	\end{lstlisting}
 \end{frame}
 
 \begin{frame}[containsverbatim]
 \frametitle{switch/case verglichen mit if/else}
+	\begin{lstlisting}
+char a;
+// input als Name waere besser
+// aber das passt vom Layout nicht
+	\end{lstlisting}
 	\begin{tabular}{c c c c}
 	\begin{lstlisting}
-char input;
 ...
-switch (input) {
+switch (a) {
 case 'r':
-	// lese Eingabe
+	// lese
 	break;
 case 'q':
 	// beenden
@@ -564,13 +568,12 @@ case 'n':
 & & &
 
 	\begin{lstlisting}
-char input;
 ...
-if (input == 'r') {
+if (a == 'r') {
 	// lese Eingabe
-} else if (input == 'q') {
+} else if (a == 'q') {
 	// beenden
-} else if (input == 'n') {
+} else if (a == 'n') {
 	// Neustart
 }
 	\end{lstlisting}\\
