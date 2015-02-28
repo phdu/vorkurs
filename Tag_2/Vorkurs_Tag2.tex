@@ -22,20 +22,20 @@
 %  \begin{center}
 %	{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
 %  \end{center}
-% 
+%
 
 \setbeamertemplate{title page}{
-  \begin{center}
-    \color{FSIblue}
-      \resizebox{\textwidth}{!}{Programmiervorkurs}\\
-      \vspace{0.3\baselineskip}
-      \huge{Einführung in Java}\\
-      \huge{Tag 2}
-      \vfill
-      \large{Sebastian Wörner (Struppi)}\\
-      \tiny{WS 2013/2014}
-  \end{center}
-} 
+	\begin{center}
+		\color{FSIblue}
+			\resizebox{\textwidth}{!}{Programmiervorkurs}\\
+			\vspace{0.3\baselineskip}
+			\huge{Einführung in Java}\\
+			\huge{Tag 2}
+			\vfill
+			\large{Moritz Grimm}\\
+			\tiny{SS2015}
+	\end{center}
+}
 
 \begin{document}
 \shorthandoff{"}
@@ -43,39 +43,39 @@
 \input{../lstsettings.tex}
 
 \begin{frame}
-  \titlepage
+	\titlepage
 \end{frame}
 
 \section{Ablauf}
 \begin{frame}
-  \frametitle{Ablauf}
-  \begin{itemize}
-    \item{09:30 Vorstellung der Lösungen des Vortages}
-    \item{ab 10:00 Vorlesung}
-    \item{90 min Mittagspause}
-    \item{gegen 12:30 / 13:00 Übungen}
-  \end{itemize}
+	\frametitle{Ablauf}
+	\begin{itemize}
+		\item{09:30 Vorstellung der Lösungen des Vortages}
+		\item{ab 10:00 Vorlesung}
+		\item{90 min Mittagspause}
+		\item{gegen 12:30 / 13:00 Übungen}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Inhaltsübersicht Vorkurs}
-  \begin{itemize}
-  {\color{gray}
-    \item {Tag 1: Variablen, Datentypen, Konvertierungen, Arithmetik, Netbeans, Einführung Debugging}
-    {\color{black}
-    \item {Tag 2: Boolesche Ausdrücke, Kommentare, If-Abfragen, Switch-Case}
-    }
-    \item {Tag 3: Arrays, (Do-)While-Schleife, For-Schleifen, Weiterführung Debugging}
-    \item {Tag 4: (statische) Methoden, Klassenvariablen, JavaDoc, Exceptions}
-  }
-  \end{itemize}
+	\frametitle{Inhaltsübersicht Vorkurs}
+	\begin{itemize}
+	{\color{gray}
+		\item {Tag 1: Variablen, Datentypen, Konvertierungen, Arithmetik, Netbeans, Einführung Debugging}
+		{\color{black}
+		\item {Tag 2: Boolesche Ausdrücke, Kommentare, If-Abfragen, Switch-Case}
+		}
+		\item {Tag 3: Arrays, (Do-)While-Schleife, For-Schleifen, Weiterführung Debugging}
+		\item {Tag 4: (statische) Methoden, Klassenvariablen, JavaDoc, Exceptions}
+	}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Inhaltsübersicht Tag 2}
 	\begin{itemize}
-		\item {Boolesche Ausdrücke}
 		\item {Kommentare}
+		\item {Boolesche Ausdrücke}
 		\item {If-Abfragen}
 		\item {Switch-Case}
 	\end{itemize}
@@ -85,7 +85,7 @@
 \begin{frame}
 	\frametitle{Kommentare}
 	\begin{itemize}
-		\item{Erleichtern das Verständnis des Quelltextes}
+		\item{erleichtern das Verständnis des Quelltextes}
 		\item{haben keinen Einfluss auf den Programmablauf}
 		\item{Programmdokumentation durch JavaDoc}
 	\end{itemize}
@@ -118,10 +118,15 @@ Zeilenkommentar:
 \begin{frame}
 	\frametitle{Verwendung von Kommentaren}
 	\begin{itemize}
-		\item{Kommentare retten Leben! Besonders das eigene!}
-		\item{Geben nachfolgenden Entwicklern Hinweise geben, wie der Quelltext zu verstehen ist}
-		\item{Sehr praktisch als Gedächtnisstütze: TODOs setzen}
-		\item{Zum Testen können Teile des Quellcodes zeitweise auskommentiert werden}
+		\item{rettet Leben! Besonders das eigene!}
+		\item{geben nachfolgenden Entwicklern Hinweise, wie der Quelltext zu verstehen ist}
+		\item{sollten auf einem höheren Abstraktionslevel beschreiben was passiert}
+		% Beispiel - über if ( a == b ) { nicht "a und b werden überprüft" sondern "hier sichergestellt, dass ... Fluxkompensator..."
+		\item{sehr praktisch als Gedächtnisstütze: TODOs setzen}
+		\item{zum Testen können Teile des Quellcodes zeitweise auskommentiert werden}
+		% auch wenn es gerade am Anfang oft verlockend ist zu beschreiben was die einzelnen Codeschnipsel machen
+		\pause
+		\item{ein Stück weit auch eine "Religionsfrage"}
 	\end{itemize}
 \end{frame}
 
@@ -130,38 +135,36 @@ Zeilenkommentar:
 \frametitle{Beispiel}
 	\begin{lstlisting}
 /**
- * Ein Hello World Programm in Java
- * 
- * @author Struppi
- * @version 1.0
+ * This Class is dangerous! Do not execute it.
+ * @author memo
  */
-public class Hello {
-
+public class GladOS {
+	/*
+	 * Die wichtigste Methode:
+	 * alles was ausgefuehrt wird muss zumindest
+	 * hier aufgerufen werden.
+	 */
 	public static void main(String[] args){
-		//gibt Hello World! aus 
-		System.out.println("Hello World!");
-		/*
-		 * soll noch ganz viele andere 
-		 * tolle sachen ausgeben
-		 */
+		// the cake is a lie
+		boolean cake = true;
 	}
 }
-
 	\end{lstlisting}
-	
-%	/**
-%* This Class is dangerous! Do not execute it.
-%* @author memo
-%*/
-%public class GladOS {
-%	/*
-%	* Die wichtigste Methode: 
-%	* alles was ausgefuehrt wird muss zumindest 
-%	* hier aufgerufen werden.
-%	*/
+%/**
+% * Ein Hello World Programm in Java
+% *
+% * @author memo
+% * @version 1.0
+% */
+%public class Hello {
+%
 %	public static void main(String[] args){
-%		// the cake is a lie
-%		boolean cake = true;
+%		//gibt Hello World! aus
+%		System.out.println("Hello World!");
+%		/*
+%		 * soll noch ganz viele andere
+%		 * tolle sachen ausgeben
+%		 */
 %	}
 %}
 \end{frame}
@@ -171,7 +174,7 @@ public class Hello {
 	\begin{lstlisting}
 /**
  * determines whether this shape is located at point pos.
- * 
+ *
  * @parm pos the point that is queried.
  * @return whether this shape is located at point pos.
  */
@@ -205,7 +208,6 @@ public boolean amIHere(Point pos){
 		\item{werden zur Entscheidungsfindung verwendet}
 	\end{itemize}
 \end{frame}
-
 
 \subsection{Vergleiche}
 \begin{frame}
@@ -256,23 +258,23 @@ public boolean amIHere(Point pos){
 			& 1 & & 1 & &  1\\
 		\end{tabular}
 		\\ &\\ &\\
-	\begin{tabular}{c c c c c | c}
+		\begin{tabular}{c c c c c | c}
 			& \textbf{a}  & & \textbf{b} & & \textbf{\^} \\
 			\hline
 			& 0 & & 0 & &  0\\
 			& 0 & & 1 & &  1\\
 			& 1 & & 0 & &  1\\
-			& 1 & & 1 & & 0\\
-	\end{tabular}
-	& &
-\begin{tabular}{c c c | c}
-		& \textbf{a} & & \textbf{!} \\
-		\hline
-		& 0 & & 1\\
-		& 1 & & 0\\
-	\end{tabular}
-	\\
-	\end{tabular}
+			& 1 & & 1 & &  0\\
+		\end{tabular}
+		& &
+		\begin{tabular}{c c c | c}
+			& \textbf{a} & & \textbf{!} \\
+			\hline
+			& 0 & & 1\\
+			& 1 & & 0\\
+		\end{tabular}
+		\\
+		\end{tabular}
 	\end{center}
 \end{frame}
 
@@ -281,7 +283,7 @@ public boolean amIHere(Point pos){
 	\frametitle{Kurzschlussoperatoren}
 	\begin{itemize}
 		\item{UND und ODER gibt es auch als sogenannte Kurzschlussoperatoren: \&\& und ||}
-		\item{=> Der Ausdruck wird nur solange ausgewertet, bis das Ergebnis feststeht}
+		\item{=> der Ausdruck wird nur solange ausgewertet, bis das Ergebnis feststeht}
 	\end{itemize}
 \end{frame}
 
@@ -290,11 +292,11 @@ public boolean amIHere(Point pos){
 	\center{Sortiert nach absteigender Bindungsstärke}\\
 	\begin{center}
 	\begin{tabular}{|l c | l|}
-	 \hline
+		\hline
 		++, -- --  & &  Inkrement und Dekrement \\
-		 \hline
+		\hline
 		! & & Negation \\ \hline
-		
+
 		*, /, \% & & Multiplikation, Division, Modulo \\ \hline
 		+, - & & Addition und Subtraktion \\ \hline
 		==, != & & Vergleich \\ \hline
@@ -303,20 +305,20 @@ public boolean amIHere(Point pos){
 		\&\& & & Kurzschlussoperator Und \\ \hline
 		|| & & Kurzschlussoperator Oder \\ \hline
 		= & & Zuweisung \\
-		 \hline
+		\hline
 	\end{tabular}
 	\center{Unäre Operatoren => Standard Rechenzeichen => binäre Operatoren => Zuweisungen}
 	\end{center}
 \end{frame}
 
-\subsection{boolscher Ausdruck} 
+\subsection{boolscher Ausdruck}
 \begin{frame}
-	\frametitle{Definition: boolscher Ausdruck}
+	\frametitle{Definition: Boolscher Ausdruck}
 	\begin{itemize}
-		\item{Eine Bedingung - kann wahr oder falsch sein}
-		\item{Mehrere Bedingungen können verknüpft werden}
-		\item{"Student an der Hochschule" \&\& "Ist im ersten Semester" (kann der Compiler so nicht auswerten, Menschen schon)}
-		\uncover<2->{\item{studentAnHsKa \&\& semester == 1}}
+		\item{eine Bedingung - kann wahr oder falsch sein}
+		\item{mehrere Bedingungen können verknüpft werden}
+		\item{"StudentIn an der Hochschule" \&\& "Ist im ersten Semester" (kann der Compiler so nicht auswerten, Menschen schon)}
+		\uncover<2->{\item{studiertAnHsKa \&\& semester == 1}}
 	\end{itemize}
 \end{frame}
 
@@ -325,7 +327,7 @@ public boolean amIHere(Point pos){
 	\frametitle{Beispiel: \\Schreibe einen boolschen Ausdruck in Java Syntax, der einen Sportwagen erkennt}
 	Unsere Definition eines Sportwagens:	\\
 	\begin{itemize}
-		\item{maximual zwei Türen, keine Rücksitze, außerdem:}
+		\item{maximal zwei Türen, keine Rücksitze, außerdem:}
 		\item{Höchstgeschwindigkeit von mindestens 200 km/h und  Mindestbeschleunigung von 0 auf 100 km/h in 8 Sekunden}
 		\item{oder Höchstgeschwindigkeit von mindestens 280 km/h und mindestens 250 PS}
 	\end{itemize}
@@ -334,33 +336,32 @@ public boolean amIHere(Point pos){
 \begin{frame}[containsverbatim]
 	\frametitle{Auszuwertende Variablen}
 	\begin{lstlisting}
-boolean hatRuecksitze; 
+boolean hatRuecksitze;
 // dann true, wenn das Auto Ruecksitze hat
 int tueren; // Anzahl Tueren
-double beschleunigung; 
-// in Sekunden von 0 auf 100
-int hoechstgeschwindigkeit; // in km/h
-int leistung; // in PS
+double beschleunigung0Auf100InS;
+int hoechstgeschwindigkeitInKmh;
+int leistungInPS;
 	\end{lstlisting}
 \end{frame}
-
+%Beispiele für die Verwendung der Syntax
 
 \begin{frame}[containsverbatim]
 	\frametitle{Lösung}
 \begin{lstlisting}
 tueren < 3
-	&& !hatRuecksitze
-	&& ((hoechstgeschwindigkeit > 200 && beschleunigung < 8)
-		| (hoechstgeschwindigkeit > 280 && leistung > 250))
+&& !hatRuecksitze
+&& ((hoechstgeschwindigkeitInKmh > 200 && beschleunigung0Auf100InS < 8)
+	|| (hoechstgeschwindigkeitInKmh > 280 && leistungInPS > 250))
 \end{lstlisting}
 \vfill
 ODER
 \vfill
 \begin{lstlisting}
 tueren <= 2
-	&& hatRuecksitze == false
-	&& ((hoechstgeschwindigkeit > 200 && beschleunigung < 8)
-		||(hoechstgeschwindigkeit > 280 \& leistung > 250))
+&& hatRuecksitze == false
+&& ((hoechstgeschwindigkeitInKmh > 200 && beschleunigung0Auf100InS < 8)
+	||(hoechstgeschwindigkeitInKmh > 280 && leistungInPS > 250))
 \end{lstlisting}
 
 \end{frame}
@@ -370,33 +371,33 @@ tueren <= 2
 	\frametitle{Exkurs: Gleitkommazahlen}
 	\begin{itemize}
 		\item{Gleitkommazahlen in Java sind anfällig für Rundungsfehler}
-		\item{niemals double mit float vergleichen!}
-		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
+		\item{niemals direkt (mit ==) vergleichen!}
+		\item{Gleitkommazahlen werden als Basis und Exponent gespeichert}
 	\end{itemize}
 \end{frame}
 
-%\subsection{Vergleiche}
-%\begin{frame}
-%	\frametitle{Exkurs: Gleitkommazahlen}
-%	\begin{itemize}
-%		\item{Schon der Variablentyp kann einen Unterschied machen}
-%		\item{0.02d (double) == 0.02f (float) ?}
-%		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\ 
-%		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
-%		\item{Math.abs(zahl) berechnet den Betrag von zahl}
-%	\end{itemize}
-%\end{frame}
+\subsection{Vergleiche}
+\begin{frame}
+	\frametitle{Exkurs: Gleitkommazahlen}
+	\begin{itemize}
+		\item{Schon der Variablentyp kann einen Unterschied machen}
+		\item{0.02d (double) == 0.02f (float) ?}
+		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\
+		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
+		\item{Math.abs(zahl) berechnet den Betrag von zahl}
+	\end{itemize}
+\end{frame}
 
-%\subsection{Größenordungsprobleme}
-%\begin{frame}
-%	\begin{itemize}
-%		\item{Achtung beim Verrechnen von Zahlen die einige Größenordungen auseinander liegen}
-%		\item{z.B. 100000000000000000.0 + 8 = 100000000000000000.0}
-%		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
-%		\item{Die Basis muss alle relevanten Teile der Zahl enthalten die dann vom Exponent verschoben werden können}
-%		\item{=> Es können sehr große und sehr kleine Zahlen gespeichert werden, aber nicht beides}
-%	\end{itemize}
-%\end{frame}
+\subsection{Größenordungsprobleme}
+\begin{frame}
+	\begin{itemize}
+		\item{Achtung beim Verrechnen von Zahlen, die einige Größenordungen auseinander liegen}
+		\item{z.B. 100000000000000000.0 + 8 = 100000000000000000.0}
+		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
+		\item{die Basis muss alle relevanten Teile der Zahl enthalten die dann vom Exponent verschoben werden können}
+		\item{=> es können sehr große und sehr kleine Zahlen gespeichert werden, aber nicht beides}
+	\end{itemize}
+\end{frame}
 
 \section{if}
 \subsection{Beispiel}
@@ -419,16 +420,15 @@ if (Bedingung) {
 	\frametitle{Beispiel}
 	\begin{lstlisting}at
 if(esGibtMate){
-		System.out.println
-		("nimm ne Mate und geh zur Vorlesung");
-	} else if (esGibtKaffee){
-		System.out.println
-		("nimm nen Kaffee und geh zur Vorlesung");
-	} else {
-		System.out.println
-		("Vergiss den tag und geh wieder heim ins bett");
-	}
-	
+	System.out.println
+		("Nimm ne Mate und geh zur Vorlesung");
+} else if (esGibtKaffee){
+	System.out.println
+		("Nimm nen Kaffee und geh zur Vorlesung");
+} else {
+	System.out.println
+		("Viel Glueck da draussen - du bist auf dich alleine gestellt");
+}
 	\end{lstlisting}
 \end{frame}
 
@@ -436,27 +436,30 @@ if(esGibtMate){
 \begin{frame}
 	\frametitle{if-Abfragen - Syntax}
 	\begin{itemize}
-		\item{Auf die Klammer, in der die Bedingung angegeben wird, folgt kein Semikolon!}
-		\item{In einem If-Block können beliebig viele Anweisungen stehen.}
-		\item{Die einzelnen Blöcke werden durch geschweifte Klammern getrennt}
+		\item{auf die Klammer, in der die Bedingung angegeben wird, folgt kein Semikolon!}
+		\item{in einem If-Block können beliebig viele Anweisungen stehen.}
+		\item{die einzelnen Blöcke werden durch geschweifte Klammern getrennt}
 	\end{itemize}
 \end{frame}
 
-%\begin{frame}[containsverbatim]
-%	\frametitle{noch ein etwas praktischeres Beispiel:}
-%	%TODO evtl auch anderes bsp. da int und geteilt nicht gut
-%	\begin{lstlisting}
-%int a, b;
-%...
-%if (a != 0) {
-%	System.out.print("b/a: ");
-%	System.out.println(b/a);
-%} else {
-%	System.out.println("Division durch 0!");
-%}
-%	\end{lstlisting}	
-%	Hier ist die Bedingung das Ergebnis eines Vergleichs.	
-%\end{frame}
+\begin{frame}[containsverbatim]
+	\frametitle{noch ein etwas praktischeres Beispiel:}
+	% evtl auch anderes bsp. da int und geteilt nicht gut?
+	% Kein Problem, da das Ergebnis ja nicht gespeichert sondern ausgegeben wird!
+	\begin{lstlisting}
+int ab;
+\\ ...
+\\ hier müssen die Variablen noch Werte zugewiesen bekommen
+\\ ...
+if (a != 0) {
+	System.out.print("b/a: ");
+	System.out.println(b/a);
+} else {
+	System.out.println("Division durch 0!");
+}
+	\end{lstlisting}
+	Hier ist die Bedingung das Ergebnis eines Vergleichs.
+\end{frame}
 
 \subsection{false == true}
 \begin{frame}[containsverbatim]
@@ -487,7 +490,7 @@ int age;
 if(age < 18){
 	if(age < 12){
 		System.out.println("kein Eintritt");
-	} else {
+	} else { // das ist der Fall, dass das alter groesser 12 ist ;)
 		System.out.println("Ermäsigter Eintritt");
 	}
 } else {
@@ -502,12 +505,12 @@ if(age < 18){
 \begin{frame}[containsverbatim]
 	\frametitle{Fallunterscheidung durch Switch/Case}
 	\begin{itemize}
-	\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
-	\item{nur ganzzahlige Typen oder char}
-	\item{jeder Wert darf nur einmal vorkommen}
-	\item{läuft durch bis break oder bis zum Ende des Switch}
-	\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt, wenn vorhanden}
-  \end{itemize}
+		\item{Fallunterscheidung in Abhängigkeit von einer Variablen}
+		\item{nur ganzzahlige Typen oder char}
+		\item{jeder Wert darf nur einmal vorkommen}
+		\item{läuft durch bis break oder bis zum Ende des Switch}
+		\item{trifft keiner der beachteten Fälle ein wird (ähnlich dem else) ein default ausgeführt, wenn vorhanden}
+	\end{itemize}
 \end{frame}
 
 
@@ -550,10 +553,10 @@ case 'n':
 	// Neustart
 	break;
 }
-	\end{lstlisting} 
+	\end{lstlisting}
 
 & & &
-	
+
 	\begin{lstlisting}
 char a;
 ...
@@ -571,25 +574,28 @@ if (a == 'r') {
 \section{weitere Planung}
 \begin{frame}
 \frametitle{weitere Planung}
-  \begin{itemize}
-	\item{weiter gehts in ca. 90min}
-	\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
-	\item{morgen früh ab 9:30 Uhr findet die Besprechung der Aufgaben von heute Nachmittag statt}
-	\item{danach (ca. ab 10:00 Uhr) beginnt die nächste Vorlesung. Themen: Arrays und Schleifen}
-  \end{itemize}
-\end{frame}
-
-\section{Quellen \& Lizenz}
-\begin{frame}
-	\frametitle{Quellen und Lizenz}
-	\begin{center}
-		\includegraphics[width=250px]{gfx/fsi}
-	\end{center}
 	\begin{itemize}
-		\item{Original von Moritz Grimm}
-		\item{Überarbeitet 2013 von Sebastian Wörner}
+		\item{weiter gehts in ca. 90min}
+		\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
+		\item{morgen früh ab 9:30 Uhr findet die Besprechung der Aufgaben von heute Nachmittag statt}
+		\item{danach (ca. ab 10:00 Uhr) beginnt die nächste Vorlesung. Themen: Arrays und Schleifen}
 	\end{itemize}
 \end{frame}
 
+% Folien sind orginal von Anna Roes
+% sind aber public domain
+
+%\section{Quellen \& Lizenz}
+%\begin{frame}
+%	\frametitle{Quellen und Lizenz}
+%	\begin{center}
+%		\includegraphics[width=250px]{gfx/fsi}
+%	\end{center}
+%	\begin{itemize}
+%		\item{
+%		\item{Original von Moritz Grimm}
+%		\item{Überarbeitet 2013 von Sebastian Wörner}
+%	\end{itemize}
+%\end{frame}
 
 \end{document}
