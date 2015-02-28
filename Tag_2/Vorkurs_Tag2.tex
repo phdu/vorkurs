@@ -135,14 +135,15 @@ Zeilenkommentar:
 \frametitle{Beispiel}
 	\begin{lstlisting}
 /**
- * This Class is dangerous! Do not execute it.
+ * This Class is dangerous!
+ * Do not execute it.
  * @author memo
  */
 public class GladOS {
 	/*
 	 * Die wichtigste Methode:
-	 * alles was ausgefuehrt wird muss zumindest
-	 * hier aufgerufen werden.
+	 * alles was ausgefuehrt wird muss
+	 * zumindest hier aufgerufen werden.
 	 */
 	public static void main(String[] args){
 		// the cake is a lie
@@ -173,10 +174,12 @@ public class GladOS {
 	\frametitle{Deklaration einer Methode mit Javadoc.}
 	\begin{lstlisting}
 /**
- * determines whether this shape is located at point pos.
+ * determines whether this shape is
+ * located at point pos.
  *
- * @parm pos the point that is queried.
- * @return whether this shape is located at point pos.
+ * @param pos the point that is queried.
+ * @return whether this shape is located
+ * at point pos.
  */
 public boolean amIHere(Point pos){
 	if(((firstPaintingPoint.x < pos.x) &&
@@ -230,8 +233,6 @@ public boolean amIHere(Point pos){
 		\textbf{|} & - & oder \\&&\\
 		\textbf{!} & - & nicht \\&&\\
 		\textbf{\^\ }  & - &  exklusives oder \\&&\\
-		\textbf{==} & - & gleich \\&&\\
-		\textbf{!=} & - & ungleich \\
 	\end{tabular}
 \end{frame}
 
@@ -315,10 +316,11 @@ public boolean amIHere(Point pos){
 \begin{frame}
 	\frametitle{Definition: Boolscher Ausdruck}
 	\begin{itemize}
-		\item{eine Bedingung - kann wahr oder falsch sein}
-		\item{mehrere Bedingungen können verknüpft werden}
+		\item{Wahrheitswert - kann wahr oder falsch sein}
+		\item{werden meist als Bedingungen verwendet}
+		\item{mehrere Werte können verknüpft werden - zu sogenanneten boolschen Ausdrücken}
 		\item{"StudentIn an der Hochschule" \&\& "Ist im ersten Semester" (kann der Compiler so nicht auswerten, Menschen schon)}
-		\uncover<2->{\item{studiertAnHsKa \&\& semester == 1}}
+		\uncover<2->{\item{studiesAtHsKa \&\& semester == 1}}
 	\end{itemize}
 \end{frame}
 
@@ -336,12 +338,15 @@ public boolean amIHere(Point pos){
 \begin{frame}[containsverbatim]
 	\frametitle{Auszuwertende Variablen}
 	\begin{lstlisting}
-boolean hatRuecksitze;
-// dann true, wenn das Auto Ruecksitze hat
-int tueren; // Anzahl Tueren
-double beschleunigung0Auf100InS;
-int hoechstgeschwindigkeitInKmh;
-int leistungInPS;
+// true, wenn das Auto Ruecksitze hat
+boolean hasBackseats;
+int doors; // Anzahl Tueren
+// Beschleunigung von 0 auf 100 in Sekunden
+double acceleration0To100InS;
+// Hoechstgeschwindigkeit in KM/H
+int maximumSpeedInKmPerH;
+// Leistung in PS
+int powerInPS;
 	\end{lstlisting}
 \end{frame}
 %Beispiele für die Verwendung der Syntax
@@ -349,19 +354,19 @@ int leistungInPS;
 \begin{frame}[containsverbatim]
 	\frametitle{Lösung}
 \begin{lstlisting}
-tueren < 3
-&& !hatRuecksitze
-&& ((hoechstgeschwindigkeitInKmh > 200 && beschleunigung0Auf100InS < 8)
-	|| (hoechstgeschwindigkeitInKmh > 280 && leistungInPS > 250))
+doors < 3
+&& !hasBackseats
+&& ((maximumSpeedInKmPerH > 200 && acceleration0To100InS < 8)
+	|| (maximumSpeedInKmPerH > 280 && powerInPS > 250))
 \end{lstlisting}
 \vfill
 ODER
 \vfill
 \begin{lstlisting}
-tueren <= 2
-&& hatRuecksitze == false
-&& ((hoechstgeschwindigkeitInKmh > 200 && beschleunigung0Auf100InS < 8)
-	||(hoechstgeschwindigkeitInKmh > 280 && leistungInPS > 250))
+doors <= 2
+&& hasBackseats == false
+&& ((maximumSpeedInKmPerH > 200 && acceleration0To100InS < 8)
+	||(maximumSpeedInKmPerH > 280 && powerInPS > 250))
 \end{lstlisting}
 
 \end{frame}
@@ -371,8 +376,8 @@ tueren <= 2
 	\frametitle{Exkurs: Gleitkommazahlen}
 	\begin{itemize}
 		\item{Gleitkommazahlen in Java sind anfällig für Rundungsfehler}
+		\item{Schon der Variablentyp kann einen Unterschied machen}
 		\item{niemals direkt (mit ==) vergleichen!}
-		\item{Gleitkommazahlen werden als Basis und Exponent gespeichert}
 	\end{itemize}
 \end{frame}
 
@@ -380,7 +385,6 @@ tueren <= 2
 \begin{frame}
 	\frametitle{Exkurs: Gleitkommazahlen}
 	\begin{itemize}
-		\item{Schon der Variablentyp kann einen Unterschied machen}
 		\item{0.02d (double) == 0.02f (float) ?}
 		\item{=> Um sicherzugehen lieber prüfen, ob die Abweichung nur minimal ist: \\
 		Math.abs(0.02d - 0.02f) < 4.5E-10 ?}
@@ -419,10 +423,10 @@ if (Bedingung) {
 \begin{frame}[containsverbatim]
 	\frametitle{Beispiel}
 	\begin{lstlisting}at
-if(esGibtMate){
+if(weHaveMate){
 	System.out.println
 		("Nimm ne Mate und geh zur Vorlesung");
-} else if (esGibtKaffee){
+} else if (weHaveKaffee){
 	System.out.println
 		("Nimm nen Kaffee und geh zur Vorlesung");
 } else {
@@ -447,9 +451,11 @@ if(esGibtMate){
 	% evtl auch anderes bsp. da int und geteilt nicht gut?
 	% Kein Problem, da das Ergebnis ja nicht gespeichert sondern ausgegeben wird!
 	\begin{lstlisting}
-int ab;
+int a;
+double b;
 \\ ...
-\\ hier müssen die Variablen noch Werte zugewiesen bekommen
+\\ hier muessen die Variablen noch
+\\ Werte zugewiesen bekommen
 \\ ...
 if (a != 0) {
 	System.out.print("b/a: ");
@@ -466,18 +472,18 @@ if (a != 0) {
 	\frametitle{Abkürzungen bei boolschen Variablen}
 	\begin{lstlisting}
 boolean istStudent = true;
-if (istStudent) {
+if (isStudent) {
 	// gewaehre Studentenrabatt
 }
 //entspricht der Abfrage folgender Bedingungen:
-if (istStudent == true) { ... }
+if (isStudent == true) { ... }
 
 //umgedreht:
-if (!istStudent){
+if (!isStudent){
 	//gewaehre keinen Studentenrabatt
 }
 //entspricht
-if (istStudent == false) { ... }
+if (isStudent == false) { ... }
 	\end{lstlisting}
 \end{frame}
 
@@ -490,11 +496,11 @@ int age;
 if(age < 18){
 	if(age < 12){
 		System.out.println("kein Eintritt");
-	} else { // das ist der Fall, dass das alter groesser 12 ist ;)
-		System.out.println("Ermäsigter Eintritt");
+	} else { // if 12 < age < 18 ;)
+		System.out.println("ermaessigter Eintritt");
 	}
 } else {
-	System.out.println("Normal Preis");
+	System.out.println("voller Eintritt");
 }
 	\end{lstlisting}
 	=> Vorsicht! Wird leicht unübersichtlich!
@@ -518,9 +524,9 @@ if(age < 18){
 \begin{frame}[containsverbatim]
 	\frametitle{Beispiel}
 	\begin{lstlisting}
-int fall;
+int fallThrough;
 ...
-switch (fall) {
+switch (fallThrough) {
 case 0:
 	System.out.println("Operation erfolgreich");
 	break;
@@ -540,9 +546,9 @@ default:
 \frametitle{switch/case verglichen mit if/else}
 	\begin{tabular}{c c c c}
 	\begin{lstlisting}
-char a;
+char input;
 ...
-switch (a) {
+switch (input) {
 case 'r':
 	// lese Eingabe
 	break;
@@ -558,13 +564,13 @@ case 'n':
 & & &
 
 	\begin{lstlisting}
-char a;
+char input;
 ...
-if (a == 'r') {
+if (input == 'r') {
 	// lese Eingabe
-} else if (a == 'q') {
+} else if (input == 'q') {
 	// beenden
-} else if (a == 'n') {
+} else if (input == 'n') {
 	// Neustart
 }
 	\end{lstlisting}\\
@@ -575,27 +581,24 @@ if (a == 'r') {
 \begin{frame}
 \frametitle{weitere Planung}
 	\begin{itemize}
-		\item{weiter gehts in ca. 90min}
+		\item{weiter gehts in ca. 60min}
 		\item{heute Nachmittag bleiben wir da bis ihr fertig seid, es gibt also kein festes Ende bis zu dem ihr fertig sein müsst}
 		\item{morgen früh ab 9:30 Uhr findet die Besprechung der Aufgaben von heute Nachmittag statt}
 		\item{danach (ca. ab 10:00 Uhr) beginnt die nächste Vorlesung. Themen: Arrays und Schleifen}
 	\end{itemize}
 \end{frame}
 
-% Folien sind orginal von Anna Roes
-% sind aber public domain
-
-%\section{Quellen \& Lizenz}
-%\begin{frame}
-%	\frametitle{Quellen und Lizenz}
-%	\begin{center}
-%		\includegraphics[width=250px]{gfx/fsi}
-%	\end{center}
-%	\begin{itemize}
-%		\item{
-%		\item{Original von Moritz Grimm}
-%		\item{Überarbeitet 2013 von Sebastian Wörner}
-%	\end{itemize}
-%\end{frame}
+\section{Quellen \& Lizenz}
+\begin{frame}
+	\frametitle{Quellen und Lizenz}
+	\begin{center}
+		\includegraphics[width=250px]{gfx/fsi}
+	\end{center}
+	\begin{itemize}
+		\item{Original von Anna Roes}
+		\item{Überarbeitet 2011 \& 2015 von Moritz Grimm}
+		\item{Überarbeitet 2013 von Sebastian Wörner}
+	\end{itemize}
+\end{frame}
 
 \end{document}
