@@ -182,14 +182,9 @@ public class GladOS {
  * at point pos.
  */
 public boolean amIHere(Point pos){
-	if(((firstPaintingPoint.x < pos.x) &&
-		 (secondPaintingPoint.x > pos.x)) &&
-	  ((firstPaintingPoint.y < pos.y) &&
-		(secondPaintingPoint.y > pos.y))) {
-		return true;
-	} else {
-		return false;
-	}
+	/*
+	 * important Voodoo is done here
+	 */
 }
 	\end{lstlisting}
 \end{frame}
@@ -205,7 +200,7 @@ public boolean amIHere(Point pos){
 	\frametitle{Boolsche Ausdrücke - Wahrheitswerte}
 	\textbf{100 Fakten zu Boolschen Ausdrücken}
 	\begin{itemize}
-		\item{entweder wahr oder falsch}
+		\item{entweder wahr (1) oder falsch (0)}
 		\item{oft das Ergebnis eines Vergleichs}
 		\item{können kombiniert werden}
 		\item{werden zur Entscheidungsfindung verwendet}
@@ -230,9 +225,9 @@ public boolean amIHere(Point pos){
 	\frametitle{Boolsche Operatoren - Verknüpfungen}
 	\begin{tabular}{c c c}
 		\textbf{\&}  & - & und \\&&\\
+		\textbf{\^\ }  & - &  exklusives oder \\&&\\
 		\textbf{|} & - & oder \\&&\\
 		\textbf{!} & - & nicht \\&&\\
-		\textbf{\^\ }  & - &  exklusives oder \\&&\\
 	\end{tabular}
 \end{frame}
 
@@ -279,15 +274,6 @@ public boolean amIHere(Point pos){
 	\end{center}
 \end{frame}
 
-\subsection{Operatoren}
-\begin{frame}
-	\frametitle{Kurzschlussoperatoren}
-	\begin{itemize}
-		\item{UND und ODER gibt es auch als sogenannte Kurzschlussoperatoren: \&\& und ||}
-		\item{=> der Ausdruck wird nur solange ausgewertet, bis das Ergebnis feststeht}
-	\end{itemize}
-\end{frame}
-
 \begin{frame}
 	\frametitle{Rangfolge der Operatoren}
 	\center{Sortiert nach absteigender Bindungsstärke}\\
@@ -320,7 +306,7 @@ public boolean amIHere(Point pos){
 		\item{werden meist als Bedingungen verwendet}
 		\item{mehrere Werte können verknüpft werden - zu sogenanneten boolschen Ausdrücken}
 		\item{"StudentIn an der Hochschule" \&\& "Ist im ersten Semester" (kann der Compiler so nicht auswerten, Menschen schon)}
-		\uncover<2->{\item{studiesAtHsKa \&\& semester == 1}}
+		\uncover<2->{\item{studiesAtHsKa \&\& semester}}
 	\end{itemize}
 \end{frame}
 
@@ -370,6 +356,16 @@ doors <= 2
 \end{lstlisting}
 
 \end{frame}
+
+\subsection{Operatoren}
+\begin{frame}
+	\frametitle{Kurzschlussoperatoren}
+	\begin{itemize}
+		\item{UND und ODER gibt es auch als sogenannte Kurzschlussoperatoren: \&\& und ||}
+		\item{=> der Ausdruck wird nur solange ausgewertet, bis das Ergebnis feststeht}
+	\end{itemize}
+\end{frame}
+
 
 \section{Gleitkommazahlen}
 \begin{frame}
