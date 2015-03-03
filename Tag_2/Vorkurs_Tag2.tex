@@ -306,7 +306,11 @@ public boolean amIHere(Point pos){
 		\item{werden meist als Bedingungen verwendet}
 		\item{mehrere Werte können verknüpft werden - zu sogenanneten boolschen Ausdrücken}
 		\item{"StudentIn an der Hochschule" \&\& "Ist im ersten Semester" (kann der Compiler so nicht auswerten, Menschen schon)}
-		\uncover<2->{\item{studiesAtHsKa \&\& semester}}
+		\pause
+		\item{boolean studiesAtHsKa}
+		\item{int semester}
+		\pause
+		\item{studiesAtHsKa \&\& semester == 1}
 	\end{itemize}
 \end{frame}
 
@@ -396,6 +400,7 @@ doors <= 2
 		\item{Grund: Gleitkommazahlen werden als Basis und Exponent gespeichert}
 		\item{die Basis muss alle relevanten Teile der Zahl enthalten die dann vom Exponent verschoben werden können}
 		\item{=> es können sehr große und sehr kleine Zahlen gespeichert werden, aber nicht beides}
+		%TODO sinnvolles Beispiel mit einer verkleinerten Variante von Float (Basis 2 Ziffern, Exponent 1 Ziffer)
 	\end{itemize}
 \end{frame}
 
@@ -467,7 +472,7 @@ if (a != 0) {
 \begin{frame}[containsverbatim]
 	\frametitle{Abkürzungen bei boolschen Variablen}
 	\begin{lstlisting}
-boolean istStudent = true;
+boolean isStudent = true;
 if (isStudent) {
 	// gewaehre Studentenrabatt
 }
